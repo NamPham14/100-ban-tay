@@ -1,7 +1,10 @@
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function StoryModal({ story, onClose, onNext }) {
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const [copied, setCopied] = useState(false);
+
   useEffect(() => {
     document.body.classList.add('overflow-hidden');
     return () => {
@@ -9,16 +12,35 @@ export default function StoryModal({ story, onClose, onNext }) {
     };
   }, []);
 
-  const handleShare = () => {
-    const shareUrl = `${window.location.origin}/story/${story.id}`;
-    if (navigator.share) {
+  const getShareUrl = () => `${window.location.origin}/story/${story.id}`;
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(getShareUrl()).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    });
+  };
+
+  const shareToFacebook = () => {
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(getShareUrl())}`;
+    window.open(url, '_blank', 'width=600,height=400');
+  };
+
+  const shareToZalo = () => {
+    copyToClipboard();
+    const url = `https://zalo.me/share?url=${encodeURIComponent(getShareUrl())}`;
+    window.open(url, '_blank');
+  };
+
+  const handleShareClick = () => {
+    if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
       navigator.share({
         title: `100 Bàn Tay Dựng Xây - ${story.job}`,
         text: story.quote,
-        url: shareUrl,
-      });
+        url: getShareUrl(),
+      }).catch(() => setShowShareMenu(true));
     } else {
-      alert('Copy link to share: ' + shareUrl);
+      setShowShareMenu(!showShareMenu);
     }
   };
 
@@ -108,8 +130,67 @@ export default function StoryModal({ story, onClose, onNext }) {
           </div>
         </div>
 
+        {/* Share Cyber Popup */}
+        <AnimatePresence>
+          {showShareMenu && (
+            <motion.div
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "100%", opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="absolute bottom-[60px] left-0 w-full bg-[#181f24] border-t-2 border-[#179FE8] p-6 z-40 shadow-[0_-15px_40px_rgba(23,159,232,0.4)]"
+            >
+              <div className="flex justify-between items-center mb-4 pb-2 border-b border-[#272A6E]">
+                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#179FE8]">
+                  [ CHIA SẺ CÂU CHUYỆN #{String(story.id).padStart(3, '0')} ]
+                </div>
+                <button 
+                  onClick={() => setShowShareMenu(false)}
+                  className="text-xs uppercase tracking-widest text-zinc-400 hover:text-white font-bold"
+                >
+                  [ Đóng ]
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 gap-3">
+                <button
+                  onClick={copyToClipboard}
+                  className="w-full py-3 px-4 bg-[#101518] border border-[#272A6E] hover:border-[#6E2BDB] text-left flex items-center justify-between group transition-all"
+                >
+                  <span className="text-sm font-semibold text-[#DDE1E6] group-hover:text-[#6E2BDB] transition-colors">
+                    {copied ? "✅ ĐÃ SAO CHÉP LINK VÀO BỘ NHỚ!" : "📋 Sao Chép Link (Copy Link)"}
+                  </span>
+                  <span className="text-[10px] uppercase tracking-widest text-zinc-500 group-hover:text-zinc-300">
+                    {copied ? "Copied" : "Click to copy"}
+                  </span>
+                </button>
+
+                <button
+                  onClick={shareToFacebook}
+                  className="w-full py-3 px-4 bg-[#0C6ED9]/20 border border-[#179FE8]/40 hover:bg-[#0C6ED9]/40 text-left flex items-center justify-between group transition-all"
+                >
+                  <span className="text-sm font-semibold text-[#179FE8] group-hover:text-white transition-colors">
+                    💬 Chia sẻ lên Facebook
+                  </span>
+                  <span className="text-[10px] uppercase tracking-widest text-[#179FE8]">Facebook</span>
+                </button>
+
+                <button
+                  onClick={shareToZalo}
+                  className="w-full py-3 px-4 bg-[#532DA3]/20 border border-[#6E2BDB]/40 hover:bg-[#532DA3]/40 text-left flex items-center justify-between group transition-all"
+                >
+                  <span className="text-sm font-semibold text-[#6E2BDB] group-hover:text-white transition-colors">
+                    📲 Gửi qua Zalo (Tự động Copy + Mở Zalo)
+                  </span>
+                  <span className="text-[10px] uppercase tracking-widest text-[#6E2BDB]">Zalo</span>
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Bottom Actions - Brutalist Cyber Footer */}
-        <div className="absolute bottom-0 left-0 w-full border-t border-[#272A6E] bg-[#101518] flex">
+        <div className="absolute bottom-0 left-0 w-full border-t border-[#272A6E] bg-[#101518] flex z-50">
           <button 
             onClick={onNext}
             className="flex-1 py-5 px-6 text-left hover:bg-[#181f24] transition-colors group"
@@ -119,10 +200,12 @@ export default function StoryModal({ story, onClose, onNext }) {
           </button>
           
           <button 
-            onClick={handleShare}
+            onClick={handleShareClick}
             className="w-32 border-l border-[#272A6E] flex flex-col justify-center items-center hover:bg-[#532DA3] hover:text-white text-zinc-400 transition-all group"
           >
-            <span className="text-[10px] uppercase tracking-widest font-bold group-hover:text-white">Share</span>
+            <span className="text-[10px] uppercase tracking-widest font-bold group-hover:text-white">
+              {showShareMenu ? "[ Đóng ]" : "Share"}
+            </span>
           </button>
         </div>
       </motion.div>

@@ -34,6 +34,15 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="100 Bàn Tay Dựng Xây" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +63,7 @@ const {
     </div>
 
     {/* Editorial minimalist header featuring the logo and deep purple palette */}
-    <header class="fixed top-0 left-0 w-full px-6 pt-safe z-50 mix-blend-difference mt-6 flex justify-between items-start pointer-events-none">
+    <header class="fixed top-0 left-0 w-full px-6 pt-safe z-50 mt-6 flex justify-between items-center pointer-events-none">
       <div class="pointer-events-auto flex items-center gap-3">
         <a href="/" class="block shrink-0">
           <img src="/logo.png" alt="Logo 100 Bàn Tay" class="h-9 md:h-11 w-auto object-contain drop-shadow-[0_0_12px_rgba(110,43,219,0.5)]" />
@@ -69,9 +78,9 @@ const {
         </div>
       </div>
       
-      <nav class="flex flex-col items-end gap-2 pointer-events-auto">
-        <a href="/" class="text-xs uppercase tracking-widest text-zinc-400 hover:text-[#6E2BDB] transition-colors font-medium">Triển Lãm</a>
-        <a href="/about" class="text-xs uppercase tracking-widest text-zinc-400 hover:text-[#6E2BDB] transition-colors font-medium">Dự Án</a>
+      <nav class="flex items-center gap-1 bg-[#101518]/90 border border-[#272A6E] p-1.5 rounded-full backdrop-blur-md pointer-events-auto shadow-[0_0_20px_rgba(59,42,133,0.3)]">
+        <a href="/" class="px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#DDE1E6] hover:bg-[#6E2BDB]/40 hover:text-white rounded-full transition-all">Triển Lãm</a>
+        <a href="/about" class="px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#179FE8] bg-[#272A6E]/80 hover:bg-[#179FE8] hover:text-white rounded-full transition-all shadow-sm">Dự Án (About)</a>
       </nav>
     </header>
 
