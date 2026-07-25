@@ -15,8 +15,8 @@ export function getStaticPaths() {
 const { id } = Astro.params;
 const { story } = Astro.props;
 
-const title = `100 Bàn Tay Dựng Xây - Bàn tay của ${story.job} tại ${story.region}`;
-const description = story.story;
+const title = `100 Bàn Tay Dựng Xây | Câu Chuyện Số ${String(story.id).padStart(2, '0')}: ${story.job} (${story.region})`;
+const description = `"${story.quote}" — Khám phá tư liệu triển lãm thực tế của người lao động ngành xây dựng Việt Nam.`;
 const image = story.image;
 ---
 

@@ -11,10 +11,11 @@ interface Props {
 const { 
   title = "100 Bàn Tay Dựng Xây", 
   description = "Mỗi bàn tay có một câu chuyện. 100 bàn tay dựng nên hình hài Việt Nam.",
-  image = "/images/og-default.jpg",
+  image = "https://100-ban-tay.vercel.app/logo.png",
   url = "https://100-ban-tay.vercel.app"
 } = Astro.props;
 
+const finalImage = image.startsWith('http') ? image : `https://100-ban-tay.vercel.app${image.startsWith('/') ? '' : '/'}${image}`;
 const { pathname } = Astro.url;
 const isAbout = pathname.includes('/about');
 ---
@@ -36,16 +37,14 @@ const isAbout = pathname.includes('/about');
     <meta property="og:url" content={url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content={finalImage} />
     <meta property="og:site_name" content="100 Bàn Tay Dựng Xây" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={url} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image" content={finalImage} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
