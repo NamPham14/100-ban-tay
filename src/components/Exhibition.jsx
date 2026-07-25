@@ -69,22 +69,22 @@ export default function Exhibition({ stories, initialStoryId }) {
                 className="w-12 md:w-20 h-[2px] bg-[#D4622B] mb-6 md:mb-10 origin-left"
               ></motion.div>
 
-              <div className="overflow-hidden mb-1">
+              <div className="mb-2 pb-2">
                 <motion.h1 
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
+                  initial={{ y: "50%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
-                  className="font-heading text-5xl sm:text-6xl md:text-[8rem] lg:text-[10rem] font-bold text-white leading-[0.85] tracking-tighter uppercase"
+                  className="font-heading text-[4.5rem] sm:text-7xl md:text-[9rem] lg:text-[11rem] font-bold text-white leading-[1.1] tracking-tighter uppercase"
                 >
                   100 Bàn Tay
                 </motion.h1>
               </div>
-              <div className="overflow-hidden mb-4 md:mb-8">
+              <div className="mb-8 md:mb-12 pb-2">
                 <motion.h1 
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
+                  initial={{ y: "50%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}
-                  className="font-heading text-4xl sm:text-5xl md:text-[6rem] lg:text-[8rem] font-bold text-[#D4622B] leading-[0.9] tracking-tighter uppercase"
+                  className="font-heading text-5xl sm:text-6xl md:text-[7rem] lg:text-[9rem] font-bold text-[#FF5C00] leading-[1.1] tracking-tighter uppercase"
                 >
                   Dựng Xây.
                 </motion.h1>
@@ -130,23 +130,24 @@ export default function Exhibition({ stories, initialStoryId }) {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
           >
-            <div className="flex-1 w-full h-full relative cursor-grab active:cursor-grabbing">
+            <div className="flex-1 w-full h-full relative">
               <TransformWrapper
                 initialScale={1}
-                minScale={0.4}
-                maxScale={3}
+                minScale={0.3}
+                maxScale={4}
                 centerOnInit={true}
                 wheel={{ step: 0.1 }}
                 pinch={{ step: 5 }}
+                panning={{ velocityDisabled: false, lockAxisY: false, lockAxisX: false }}
                 doubleClick={{ disabled: true }}
+                limitToBounds={true}
               >
-                <TransformComponent wrapperClass="!w-full !h-full" contentClass="!w-full !h-full flex items-center justify-center">
-                  <div className="w-[800px] h-[950px] md:w-[900px] md:h-[1000px] flex items-center justify-center">
+                <TransformComponent wrapperClass="!w-full !h-full" contentClass="w-max h-max min-w-full min-h-full flex items-center justify-center p-12 md:p-24">
                     <div 
-                      className="grid gap-[1px] md:gap-[2px] mx-auto relative" 
+                      className="grid gap-[2px] md:gap-[3px] relative mx-auto" 
                       style={{ 
-                        gridTemplateColumns: 'repeat(15, minmax(24px, 44px))', 
-                        gridTemplateRows: 'repeat(30, minmax(24px, 44px))' 
+                        gridTemplateColumns: 'repeat(15, 32px)', 
+                        gridTemplateRows: 'repeat(30, 32px)' 
                       }}
                     >
                       {stories.map((story) => {
@@ -197,7 +198,7 @@ export default function Exhibition({ stories, initialStoryId }) {
                                   transition={{ duration: 0.2 }}
                                   className="absolute top-1/2 left-full ml-4 -translate-y-1/2 z-50 pointer-events-none whitespace-nowrap hidden md:block"
                                 >
-                                  <div className="text-[10px] uppercase tracking-widest text-[#8a8580] font-medium">
+                                  <div className="text-[10px] uppercase tracking-widest text-zinc-400 font-medium">
                                     {String(story.id).padStart(3, '0')} — {story.region}
                                   </div>
                                 </motion.div>
@@ -207,14 +208,13 @@ export default function Exhibition({ stories, initialStoryId }) {
                         );
                       })}
                     </div>
-                  </div>
                 </TransformComponent>
               </TransformWrapper>
             </div>
             
             {/* Status bar */}
             <div className="absolute bottom-0 left-0 w-full h-12 border-t border-[#1a1513] bg-[#0a0808]/80 backdrop-blur-md flex items-center justify-between px-6 z-20 pointer-events-none">
-              <div className="text-[10px] uppercase tracking-widest text-[#8a8580]">Kéo / Thu phóng để tương tác</div>
+              <div className="text-[10px] uppercase tracking-widest text-[#8a8580]">Vuốt / Kéo để di chuyển · Pinch để thu phóng</div>
               <div className="text-[10px] uppercase tracking-widest text-[#8a8580]">100 Records</div>
             </div>
           </motion.div>

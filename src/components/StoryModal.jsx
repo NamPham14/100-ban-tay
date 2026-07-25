@@ -57,9 +57,13 @@ export default function StoryModal({ story, onClose, onNext }) {
           </div>
           <button 
             onClick={onClose}
-            className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#8a8580] hover:text-[#e8e4e0] transition-colors"
+            className="w-10 h-10 flex items-center justify-center text-[#8a8580] hover:text-white hover:bg-[#1a1513] transition-colors -mr-2"
+            aria-label="Đóng"
           >
-            [ Đóng ]
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
           </button>
         </div>
 
