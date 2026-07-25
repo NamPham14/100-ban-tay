@@ -83,16 +83,17 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
           <div className="w-12 h-1 bg-[#272A6E] rounded-full"></div>
         </div>
 
-        {/* Header - Cyber Editorial Style */}
+        {/* Header - Humanist Documentary Style */}
         <div className="flex justify-between items-center px-6 py-4 md:py-5 border-b border-[#272A6E]">
-          <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#179FE8]">
-            RECORD No. {String(story.id).padStart(3, '0')}
+          <div className="text-xs font-semibold uppercase tracking-widest text-[#179FE8] font-mono">
+            CÂU CHUYỆN SỐ {String(story.id).padStart(2, '0')}
           </div>
           <button 
             onClick={onClose}
-            className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-[#DDE1E6] transition-colors"
+            className="text-xs font-semibold uppercase tracking-widest text-zinc-400 hover:text-[#DDE1E6] transition-colors flex items-center gap-1.5"
           >
-            [ Đóng ]
+            <span>Đóng</span>
+            <span className="text-sm">✕</span>
           </button>
         </div>
 

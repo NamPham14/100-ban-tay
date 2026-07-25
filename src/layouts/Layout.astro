@@ -51,7 +51,7 @@ const isAbout = pathname.includes('/about');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
   </head>
-  <body class="font-sans antialiased min-h-screen overflow-hidden selection:bg-[#6E2BDB] selection:text-white">
+  <body class={`font-sans antialiased min-h-screen selection:bg-[#6E2BDB] selection:text-white ${!isAbout ? 'overflow-hidden' : 'overflow-x-hidden overflow-y-auto'}`}>
     
     <div class="noise-bg"></div>
 

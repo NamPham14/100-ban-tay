@@ -3,134 +3,96 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Dự Án | 100 Bàn Tay Dựng Xây" description="Tôn vinh những người hùng thầm lặng của ngành xây dựng Việt Nam qua 100 câu chuyện và 100 bức ảnh bàn tay thật.">
-  <main class="min-h-[100dvh] bg-[#101518] text-[#DDE1E6] flex flex-col relative pb-safe overflow-hidden">
+  <main class="min-h-dvh bg-[#101518] text-[#DDE1E6] flex flex-col relative pb-20 md:pb-28">
     
-    {/* Background ambient glow */}
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-[#532DA3]/20 via-[#179FE8]/10 to-transparent rounded-full blur-[120px] pointer-events-none"></div>
+    {/* Soft humanist ambient lighting - subtle and warm */}
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#532DA3]/10 rounded-full blur-[140px] pointer-events-none"></div>
 
-    <div class="flex-1 flex items-center justify-center px-6 py-28 md:py-36 relative z-10">
+    <div class="flex-1 flex justify-center px-6 pt-32 md:pt-40 relative z-10">
       <div class="max-w-4xl w-full">
         
-        {/* Cyber Editorial header */}
-        <div class="mb-14 md:mb-20 border-b border-[#272A6E] pb-12">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#272A6E]/50 border border-[#6E2BDB]/40 text-[#179FE8] text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#179FE8] animate-pulse"></span>
-            Visionary Exhibition Project
+        {/* Editorial Monograph Header */}
+        <div class="mb-16 md:mb-24 border-b border-[#272A6E]/80 pb-12 md:pb-16">
+          <div class="inline-flex items-center gap-2 text-[#179FE8] text-xs font-semibold tracking-widest uppercase mb-6 font-mono">
+            <span class="w-2 h-2 rounded-full bg-[#179FE8]"></span>
+            Tư liệu triển lãm & Lưu trữ cảm xúc 2026
           </div>
           
-          <h1 class="font-heading text-5xl sm:text-7xl md:text-8xl font-bold text-[#DDE1E6] leading-[0.9] tracking-tighter uppercase mb-6">
-            100 Bàn Tay<br />
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#6E2BDB] via-[#179FE8] to-[#0C6ED9] drop-shadow-[0_0_30px_rgba(110,43,219,0.4)]">
-              Dựng Xây.
+          <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl font-bold text-[#DDE1E6] leading-[1.05] tracking-tight mb-8">
+            100 Bàn Tay • 1 Cuộc Đời<br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#DDE1E6] via-[#179FE8] to-[#6E2BDB]">
+              1 Hình Hài Việt Nam.
             </span>
           </h1>
           
-          <p class="text-base md:text-lg text-zinc-300 max-w-xl font-light leading-relaxed">
-            Dự án triển lãm số lưu trữ những câu chuyện đời thường của người thợ xây dựng Việt Nam. Mộc mạc, thô ráp, và nguyên bản dưới góc nhìn công nghệ tương lai.
+          <p class="text-lg md:text-xl text-zinc-300 max-w-2xl font-light leading-relaxed font-serif italic">
+            "Đằng sau những công trình kỳ vĩ là đôi bàn tay chai sần của hàng triệu người thợ xây dựng. Dự án là kho lưu trữ cảm xúc, ghi lại hình ảnh nguyên bản và lời tâm sự thô ráp, chân thật nhất từ khắp 63 tỉnh thành và hải đảo."
           </p>
         </div>
 
-        {/* Key Project Stats Cube */}
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14 md:mb-20">
-          <div class="bg-[#181f24]/80 border border-[#272A6E] p-6 relative group hover:border-[#179FE8] transition-all">
-            <div class="text-[10px] uppercase tracking-widest text-[#179FE8] font-bold mb-2">Quy mô</div>
-            <div class="font-heading text-4xl md:text-5xl font-bold text-[#DDE1E6]">100</div>
-            <div class="text-xs text-zinc-400 mt-1">Bàn tay lao động</div>
+        {/* Narrative Essays - Humanist Documentary Style */}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 mb-16 md:mb-24">
+          <div class="space-y-4">
+            <h2 class="text-xs uppercase tracking-[0.2em] text-[#179FE8] font-bold pb-2 border-b border-[#272A6E]">
+              01. Đằng sau khối bê tông vô tri
+            </h2>
+            <p class="text-base text-zinc-300 font-light leading-relaxed">
+              Khi một tòa nhà vươn cao hay một cây cầu nối liền đôi bờ, người ta thường nhớ đến tên kiến trúc sư hay những nhà đầu tư. Nhưng những đôi bàn tay trực tiếp nhào nặn gạch đá, chịu đựng rát bỏng của trưa hè và giá lạnh của đêm đông lại thường chìm vào quên lãng.
+            </p>
+            <p class="text-base text-zinc-400 font-light leading-relaxed">
+              Chiến dịch <strong class="text-[#DDE1E6] font-medium">100 Bàn Tay Dựng Xây</strong> ra đời không phải để phô diễn kỹ thuật, mà để trả lại vị trí xứng đáng và tôn vinh nhân phẩm lao động của những người hùng thầm lặng ấy.
+            </p>
           </div>
-          <div class="bg-[#181f24]/80 border border-[#272A6E] p-6 relative group hover:border-[#6E2BDB] transition-all">
-            <div class="text-[10px] uppercase tracking-widest text-[#6E2BDB] font-bold mb-2">Bản đồ</div>
-            <div class="font-heading text-4xl md:text-5xl font-bold text-[#DDE1E6]">01</div>
-            <div class="text-xs text-zinc-400 mt-1">Hình chữ S Việt Nam</div>
-          </div>
-          <div class="bg-[#181f24]/80 border border-[#272A6E] p-6 relative group hover:border-[#179FE8] transition-all">
-            <div class="text-[10px] uppercase tracking-widest text-[#179FE8] font-bold mb-2">Trải nghiệm</div>
-            <div class="font-heading text-4xl md:text-5xl font-bold text-[#DDE1E6]">360°</div>
-            <div class="text-xs text-zinc-400 mt-1">Triển lãm tương tác</div>
-          </div>
-          <div class="bg-[#181f24]/80 border border-[#272A6E] p-6 relative group hover:border-[#6E2BDB] transition-all">
-            <div class="text-[10px] uppercase tracking-widest text-[#6E2BDB] font-bold mb-2">Lưu trữ</div>
-            <div class="font-heading text-4xl md:text-5xl font-bold text-[#DDE1E6]">100%</div>
-            <div class="text-xs text-zinc-400 mt-1">Câu chuyện thật</div>
+
+          <div class="space-y-4">
+            <h2 class="text-xs uppercase tracking-[0.2em] text-[#6E2BDB] font-bold pb-2 border-b border-[#272A6E]">
+              02. Bản đồ ghép từ mồ hôi & khát vọng
+            </h2>
+            <p class="text-base text-zinc-300 font-light leading-relaxed">
+              100 bức ảnh chân dung bàn tay được lưu trữ hoàn toàn nguyên bản, không qua chỉnh sửa hào nhoáng. Đó là vết chai sạn của chú thợ nề 30 năm tuổi nghề ở Hà Nội, đôi tay thợ lặn thi công kè biển Trường Sa, hay bàn tay thợ sắt trẻ tại công trường TPHCM.
+            </p>
+            <p class="text-base text-zinc-400 font-light leading-relaxed">
+              Mỗi bức ảnh là một mảnh ghép. 100 mảnh ghép nối liền nhau tạo thành bản đồ hình chữ S đầy kiêu hãnh của đất nước Việt Nam.
+            </p>
           </div>
         </div>
 
-        {/* Content grid */}
-        <div class="grid grid-cols-1 md:grid-cols-[1.2fr_1px_1fr] gap-10 md:gap-14 mb-14 md:mb-20">
-          
-          <div class="space-y-8">
-            <div class="bg-[#181f24]/50 border-l-2 border-[#179FE8] pl-6 py-2">
-              <div class="text-xs uppercase tracking-[0.2em] text-[#179FE8] mb-2 font-bold">01 — Ý TƯỞNG CỐT LÕI</div>
-              <p class="text-sm md:text-base text-zinc-300 font-light leading-relaxed">
-                Ngành xây dựng Việt Nam có hàng triệu người lao động đang từng ngày đổ mồ hôi góp sức xây nên diện mạo đất nước — từ những công trình hạ tầng lớn xuyên quốc gia đến từng căn nhà nhỏ trong ngõ hẻm.
-              </p>
-            </div>
-            
-            <div class="bg-[#181f24]/50 border-l-2 border-[#6E2BDB] pl-6 py-2">
-              <div class="text-xs uppercase tracking-[0.2em] text-[#6E2BDB] mb-2 font-bold">02 — SỨ MỆNH CHIẾN DỊCH</div>
-              <p class="text-sm md:text-base text-zinc-300 font-light leading-relaxed">
-                Hình ảnh người thợ xây dựng trong truyền thông thường bị lãng quên hoặc mờ nhạt sau những khối bê tông vô tri. Chiến dịch <strong class="text-[#DDE1E6] font-semibold">100 Bàn Tay Dựng Xây</strong> ra đời để thay đổi góc nhìn đó, tôn vinh những người hùng thầm lặng.
-              </p>
+        {/* Humanist Quote Box */}
+        <div class="bg-[#181f24] border border-[#272A6E] rounded-2xl p-8 md:p-12 mb-16 md:mb-24 relative overflow-hidden shadow-xl">
+          <div class="max-w-2xl">
+            <p class="font-serif text-xl md:text-2xl text-[#DDE1E6] italic leading-snug mb-6">
+              "Chúng tôi không chỉ xây nhà hay lót gạch. Chúng tôi dựng nền móng cho những gia đình, và cùng nhau dựng nên hình hài cho đất nước này."
+            </p>
+            <div class="text-xs font-semibold uppercase tracking-widest text-[#179FE8]">
+              — Trích lời tâm sự của người thợ xây dựng tại công trường
             </div>
           </div>
+        </div>
 
-          <div class="hidden md:block w-[1px] bg-[#272A6E]"></div>
-
-          <div class="flex flex-col justify-between">
+        {/* Organization Info */}
+        <div class="border-t border-[#272A6E] pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+          <div class="flex items-center gap-5">
+            <div class="w-16 h-16 bg-[#181f24] border border-[#272A6E] rounded-xl flex items-center justify-center p-2.5 shrink-0 shadow-md">
+              <img src="/logo.png" alt="Logo 100 Bàn Tay" class="w-full h-full object-contain" />
+            </div>
             <div>
-              <div class="text-xs uppercase tracking-[0.2em] text-[#179FE8] mb-6 font-bold">03 — THÔNG ĐIỆP</div>
-              
-              <div class="border border-[#272A6E] bg-gradient-to-b from-[#181f24] to-[#101518] p-6 md:p-8 mb-6 relative shadow-[0_0_30px_rgba(59,42,133,0.25)]">
-                <svg class="w-6 h-6 text-[#6E2BDB] mb-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <p class="font-serif text-lg md:text-xl text-[#DDE1E6] italic font-medium leading-snug">
-                  "Mỗi bàn tay là một cuộc đời. 100 bàn tay dựng nên hình hài Việt Nam."
-                </p>
-              </div>
-
-              <div class="text-xs text-zinc-400 font-light leading-relaxed">
-                100 bức ảnh bàn tay thật — mỗi bức một mảnh đời, một vùng miền, một câu chuyện — được ghép thành hình chữ S, tạo nên bản đồ Việt Nam bằng những bàn tay dựng xây.
-              </div>
+              <div class="font-heading text-lg text-[#DDE1E6] font-bold tracking-wide">Tập đoàn Xây Dựng Việt Nam</div>
+              <div class="text-xs text-[#179FE8] font-medium mt-0.5">Đơn vị khởi xướng & đồng hành cùng lao động Việt</div>
+              <div class="text-xs text-zinc-500 mt-1 font-light">Lưu trữ văn hóa & tư liệu nghệ thuật lao động 2026</div>
             </div>
           </div>
-        </div>
-
-        {/* Organization info with real Logo */}
-        <div class="border border-[#272A6E] bg-[#181f24]/60 p-8 md:p-10 relative overflow-hidden">
-          <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-[#6E2BDB]/10 rounded-full blur-2xl pointer-events-none"></div>
           
-          <div class="text-[10px] uppercase tracking-[0.2em] text-[#179FE8] mb-6 font-bold">ĐƠN VỊ TỔ CHỨC & ĐỒNG HÀNH</div>
-          
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div class="flex items-center gap-5">
-              <div class="w-20 h-20 bg-[#101518] border border-[#272A6E] flex items-center justify-center p-3 shrink-0 shadow-[0_0_20px_rgba(110,43,219,0.3)]">
-                <img src="/logo.png" alt="Logo 100 Bàn Tay" class="w-full h-full object-contain" />
-              </div>
-              <div>
-                <div class="font-heading text-lg md:text-xl text-[#DDE1E6] font-bold uppercase tracking-wider">Tập đoàn Xây Dựng Việt Nam</div>
-                <div class="text-xs md:text-sm text-[#179FE8] font-medium mt-1">Đồng hành cùng người lao động Việt</div>
-                <div class="text-xs text-zinc-400 mt-1 font-light">Dự án triển lãm nghệ thuật số 2026</div>
-              </div>
-            </div>
-            
-            <a 
-              href="/" 
-              class="px-6 py-3.5 bg-gradient-to-r from-[#6E2BDB] to-[#0C6ED9] text-white font-heading text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(23,159,232,0.4)] shrink-0 block text-center w-full sm:w-auto"
-            >
-              Khám Phá Bản Đồ
-            </a>
-          </div>
-        </div>
-
-        {/* Back link */}
-        <div class="mt-12 text-center sm:text-left">
           <a 
             href="/" 
-            class="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-zinc-400 hover:text-[#179FE8] transition-colors group font-semibold"
+            class="px-8 py-4 bg-[#181f24] hover:bg-[#6E2BDB] text-[#DDE1E6] hover:text-white border border-[#272A6E] hover:border-[#6E2BDB] rounded-full font-heading text-xs font-bold uppercase tracking-widest transition-all shadow-md block text-center w-full sm:w-auto"
           >
-            <span class="w-8 h-[1px] bg-[#272A6E] group-hover:bg-[#179FE8] transition-colors"></span>
-            Quay lại trang chính
+            Bước vào Bản đồ Triển lãm →
           </a>
+        </div>
+
+        {/* Footer note */}
+        <div class="mt-16 text-center sm:text-left text-xs text-zinc-500">
+          © 2026 100 Bàn Tay Dựng Xây. Tất cả quyền và hình ảnh tư liệu thuộc về dự án.
         </div>
 
       </div>

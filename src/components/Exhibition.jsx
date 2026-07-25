@@ -65,74 +65,72 @@ export default function Exhibition({ stories, initialStoryId }) {
   return (
     <div className="relative w-screen h-dvh min-h-dvh overflow-hidden bg-[#101518] text-[#DDE1E6] touch-none">
       
-      {/* Landing Page - Cyber Brutalist Visionary Portal */}
+      {/* Landing Page - Humanist Documentary Exhibition Portal */}
       <AnimatePresence>
         {!showMap && (
           <motion.div 
-            className="absolute inset-0 z-40 flex flex-col justify-end px-6 md:px-12 pb-safe bg-[#101518]"
+            className="absolute inset-0 z-40 flex flex-col justify-end px-6 md:px-16 pb-12 md:pb-20 bg-[#101518]"
             initial={{ opacity: 1 }}
-            exit={{ opacity: 0, scale: 1.05, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
+            exit={{ opacity: 0, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
           >
-            {/* Ambient cyber visualizer background */}
-            <div className="absolute inset-0 z-0 opacity-25 pointer-events-none overflow-hidden">
-               <img src={stories[0]?.image} alt="" className="w-full h-full object-cover grayscale contrast-150 mix-blend-luminosity scale-105 animate-pulse" style={{ animationDuration: '8s' }} />
-               <div className="absolute inset-0 bg-gradient-to-t from-[#101518] via-[#101518]/85 to-transparent"></div>
-               <div className="absolute top-1/3 right-10 w-96 h-96 bg-[#6E2BDB]/15 rounded-full blur-[100px]"></div>
-               <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-[#179FE8]/15 rounded-full blur-[100px]"></div>
+            {/* Natural monochrome photography background with soft vignette */}
+            <div className="absolute inset-0 z-0 opacity-20 pointer-events-none overflow-hidden">
+               <img src={stories[0]?.image} alt="" className="w-full h-full object-cover grayscale contrast-125 scale-105" />
+               <div className="absolute inset-0 bg-gradient-to-t from-[#101518] via-[#101518]/75 to-transparent"></div>
+               <div className="absolute inset-0 bg-gradient-to-r from-[#101518]/80 via-transparent to-transparent"></div>
             </div>
 
-            <div className="relative z-10 w-full max-w-5xl mb-12 md:mb-20">
+            <div className="relative z-10 w-full max-w-6xl mb-6 md:mb-10">
               <motion.div
-                initial={{ opacity: 0, scaleX: 0 }}
-                animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 1, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
-                className="w-20 md:w-32 h-[3px] bg-gradient-to-r from-[#6E2BDB] via-[#179FE8] to-[#0C6ED9] mb-8 md:mb-12 origin-left shadow-[0_0_15px_rgba(110,43,219,0.6)]"
-              ></motion.div>
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="inline-flex items-center gap-2.5 text-[#179FE8] text-xs font-semibold tracking-widest uppercase mb-6 md:mb-8 font-mono"
+              >
+                <span className="w-2 h-2 rounded-full bg-[#179FE8]"></span>
+                Triển lãm ảnh & tư liệu lao động Việt Nam 2026
+              </motion.div>
 
-              <div className="mb-2 pb-2">
+              <div className="mb-4">
                 <motion.h1 
-                  initial={{ y: "50%", opacity: 0 }}
+                  initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
-                  className="font-heading text-[4.5rem] sm:text-7xl md:text-[9rem] lg:text-[11rem] font-bold text-[#DDE1E6] leading-[1.1] tracking-tighter uppercase"
+                  className="font-heading text-[3.8rem] sm:text-7xl md:text-[8rem] lg:text-[9.5rem] font-bold text-[#DDE1E6] leading-[0.95] tracking-tight uppercase"
                 >
                   100 Bàn Tay
                 </motion.h1>
               </div>
-              <div className="mb-8 md:mb-12 pb-2">
+              <div className="mb-10 md:mb-14">
                 <motion.h1 
-                  initial={{ y: "50%", opacity: 0 }}
+                  initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}
-                  className="font-heading text-5xl sm:text-6xl md:text-[7rem] lg:text-[9rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6E2BDB] via-[#179FE8] to-[#0C6ED9] leading-[1.1] tracking-tighter uppercase drop-shadow-[0_0_35px_rgba(110,43,219,0.35)]"
+                  className="font-heading text-[3.8rem] sm:text-7xl md:text-[8rem] lg:text-[9.5rem] font-bold text-[#DDE1E6] leading-[0.95] tracking-tight uppercase"
                 >
-                  Dựng Xây.
+                  Dựng Xây<span className="text-[#179FE8]">.</span>
                 </motion.h1>
               </div>
               
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 w-full border-t border-[#272A6E] pt-8">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 w-full border-t border-[#272A6E]/80 pt-8 md:pt-10">
                 <motion.p 
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.8 }}
-                  className="text-sm md:text-base text-zinc-300 max-w-md font-light leading-relaxed"
+                  transition={{ duration: 1, delay: 0.6 }}
+                  className="text-base md:text-lg text-zinc-300 max-w-xl font-light leading-relaxed font-serif italic"
                 >
-                  Dự án triển lãm số lưu trữ những câu chuyện đời thường của người thợ xây dựng Việt Nam. Mộc mạc, thô ráp, và nguyên bản dưới ánh sáng công nghệ tương lai.
+                  "Mỗi bàn tay chai sần là một chứng nhân thầm lặng của những công trình vượt thời gian. Khám phá kho lưu trữ 100 câu chuyện lao động nguyên bản trải dài khắp dải đất hình chữ S."
                 </motion.p>
                 
                 <motion.button 
                   onClick={() => setShowMap(true)}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.9 }}
-                  className="group flex items-center gap-5 bg-[#181f24]/80 hover:bg-[#6E2BDB]/20 border border-[#272A6E] hover:border-[#179FE8] px-6 py-4 rounded-full transition-all duration-300 shadow-[0_0_25px_rgba(59,42,133,0.3)] hover:shadow-[0_0_35px_rgba(23,159,232,0.5)]"
+                  transition={{ duration: 1, delay: 0.7 }}
+                  className="group flex items-center justify-between gap-6 bg-[#181f24] hover:bg-[#6E2BDB] border border-[#272A6E] hover:border-[#6E2BDB] px-8 py-4 rounded-full transition-all duration-300 shadow-md shrink-0"
                 >
-                  <span className="font-heading text-sm uppercase tracking-[0.2em] font-bold text-[#DDE1E6] group-hover:text-white transition-colors">Bắt đầu khám phá</span>
-                  <div className="w-10 h-10 bg-[#272A6E]/80 group-hover:bg-[#179FE8] rounded-full flex items-center justify-center transition-all">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-white group-hover:translate-x-0.5 transition-transform">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </div>
+                  <span className="font-heading text-xs uppercase tracking-widest font-bold text-[#DDE1E6] group-hover:text-white transition-colors">Bước vào Bản đồ Triển lãm</span>
+                  <span className="text-base font-bold text-[#179FE8] group-hover:text-white group-hover:translate-x-1 transition-all">→</span>
                 </motion.button>
               </div>
             </div>
@@ -249,7 +247,7 @@ export default function Exhibition({ stories, initialStoryId }) {
                                       <div className="bg-[#101518]/95 border-2 border-[#179FE8] p-3 rounded-xl shadow-[0_0_30px_rgba(23,159,232,0.4)] backdrop-blur-md">
                                         <div className="flex justify-between items-center mb-1.5 pb-1 border-b border-[#272A6E]">
                                           <span className="text-[10px] font-bold uppercase tracking-widest text-[#179FE8]">
-                                            RECORD #{String(story.id).padStart(3, '0')}
+                                            CÂU CHUYỆN SỐ {String(story.id).padStart(2, '0')}
                                           </span>
                                           <span className="text-[10px] font-bold uppercase tracking-widest text-[#6E2BDB] bg-[#3B2A85]/40 px-1.5 py-0.5 rounded">
                                             {story.region}
