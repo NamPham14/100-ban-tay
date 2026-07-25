@@ -63,7 +63,7 @@ export default function Exhibition({ stories, initialStoryId }) {
   ];
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-[#101518] text-[#DDE1E6] touch-none">
+    <div className="relative w-screen h-dvh min-h-dvh overflow-hidden bg-[#101518] text-[#DDE1E6] touch-none">
       
       {/* Landing Page - Cyber Brutalist Visionary Portal */}
       <AnimatePresence>
@@ -268,7 +268,7 @@ export default function Exhibition({ stories, initialStoryId }) {
                     </TransformComponent>
 
                     {/* Floating Zoom Control Console */}
-                    <div className="absolute bottom-20 right-6 md:right-10 z-30 flex flex-col gap-1.5 bg-[#101518]/90 border border-[#272A6E] p-1.5 rounded-2xl backdrop-blur-md shadow-[0_0_25px_rgba(59,42,133,0.4)]">
+                    <div className="absolute bottom-24 md:bottom-20 right-4 md:right-10 z-30 flex flex-col gap-1.5 bg-[#101518]/90 border border-[#272A6E] p-1.5 rounded-2xl backdrop-blur-md shadow-[0_0_25px_rgba(59,42,133,0.4)]">
                       <button 
                         onClick={() => zoomIn()}
                         className="w-10 h-10 flex items-center justify-center text-lg font-bold text-[#DDE1E6] hover:bg-[#6E2BDB] hover:text-white rounded-xl transition-all"
@@ -297,10 +297,10 @@ export default function Exhibition({ stories, initialStoryId }) {
             </div>
             
             {/* Status bar */}
-            <div className="absolute bottom-0 left-0 w-full h-12 border-t border-[#272A6E] bg-[#101518]/90 backdrop-blur-md flex items-center justify-between px-6 z-20 pointer-events-none">
+            <div className="absolute bottom-0 left-0 w-full py-2.5 pb-[max(12px,env(safe-area-inset-bottom))] border-t border-[#272A6E] bg-[#101518]/95 backdrop-blur-md flex flex-wrap items-center justify-between px-4 md:px-6 z-20 pointer-events-none gap-1">
               <div className="text-[10px] uppercase tracking-widest text-[#179FE8] font-semibold flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#179FE8] animate-pulse"></span>
-                Kéo / Thu phóng để trải nghiệm bản đồ 360°
+                <span className="w-2 h-2 rounded-full bg-[#179FE8] animate-pulse shrink-0"></span>
+                <span>Kéo / Thu phóng để trải nghiệm 360°</span>
               </div>
               <div className="text-[10px] uppercase tracking-widest text-zinc-400">
                 Hiển thị: <span className="text-[#6E2BDB] font-bold">{selectedRegion === 'all' ? '100 Bàn Tay' : `Khu Vực ${selectedRegion}`}</span>

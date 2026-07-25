@@ -12,18 +12,28 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
     };
   }, []);
 
-  const getShareUrl = () => `${window.location.origin}/story/${story.id}`;
+  const getShareUrl = () => {
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const baseUrl = isLocal ? 'https://100-ban-tay.vercel.app' : window.location.origin;
+    return `${baseUrl}/story/${story.id}`;
+  };
+
+  const getShareText = () => {
+    return `100 Bàn Tay Dựng Xây - Câu chuyện của ${story.job} tại ${story.region}:\n"${story.quote}"\n\n👉 Khám phá tại: ${getShareUrl()}`;
+  };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(getShareUrl()).then(() => {
+    navigator.clipboard.writeText(getShareText()).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     });
   };
 
   const shareToFacebook = () => {
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(getShareUrl())}`;
-    window.open(url, '_blank', 'width=600,height=400');
+    const targetUrl = getShareUrl();
+    const quoteText = `100 Bàn Tay Dựng Xây - "${story.quote}" (${story.job} tại ${story.region})`;
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(targetUrl)}&quote=${encodeURIComponent(quoteText)}`;
+    window.open(url, '_blank', 'width=600,height=550,scrollbars=yes');
   };
 
   const shareToZalo = () => {
@@ -36,7 +46,7 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
     if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
       navigator.share({
         title: `100 Bàn Tay Dựng Xây - ${story.job}`,
-        text: story.quote,
+        text: `"${story.quote}" - Câu chuyện của ${story.job} tại ${story.region}`,
         url: getShareUrl(),
       }).catch(() => setShowShareMenu(true));
     } else {
@@ -66,7 +76,7 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
         animate={{ y: 0 }}
         exit={{ y: '100%' }}
         transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-        className="fixed bottom-0 left-0 md:left-auto md:right-0 z-50 w-full h-[88dvh] md:h-screen md:w-[600px] lg:w-[700px] bg-[#101518] border-t md:border-t-0 md:border-l border-[#272A6E] flex flex-col overflow-hidden shadow-[-20px_0_50px_rgba(59,42,133,0.3)]"
+        className="fixed bottom-0 left-0 md:left-auto md:right-0 z-50 w-full h-[88dvh] max-h-dvh md:h-screen md:w-[600px] lg:w-[700px] bg-[#101518] border-t md:border-t-0 md:border-l border-[#272A6E] flex flex-col overflow-hidden shadow-[-20px_0_50px_rgba(59,42,133,0.3)]"
       >
         {/* Drag handle for mobile */}
         <div className="w-full flex justify-center pt-3 pb-1 md:hidden">
@@ -87,7 +97,7 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
         </div>
 
         {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto no-scrollbar pb-[100px]">
+        <div className="flex-1 overflow-y-auto no-scrollbar pb-[130px] md:pb-[100px]">
           
           <div className="w-full h-[40vh] md:h-[45vh] bg-[#181f24] border-b border-[#272A6E] relative">
             <img 
@@ -138,7 +148,7 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "100%", opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="absolute bottom-[60px] left-0 w-full bg-[#181f24] border-t-2 border-[#179FE8] p-6 z-40 shadow-[0_-15px_40px_rgba(23,159,232,0.4)]"
+              className="absolute bottom-[75px] md:bottom-[60px] left-0 w-full bg-[#181f24] border-t-2 border-[#179FE8] p-6 z-40 shadow-[0_-15px_40px_rgba(23,159,232,0.4)]"
             >
               <div className="flex justify-between items-center mb-4 pb-2 border-b border-[#272A6E]">
                 <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#179FE8]">
@@ -190,7 +200,7 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
         </AnimatePresence>
 
         {/* Bottom Actions - Brutalist Cyber Footer */}
-        <div className="absolute bottom-0 left-0 w-full border-t border-[#272A6E] bg-[#101518] flex z-50">
+        <div className="absolute bottom-0 left-0 w-full border-t border-[#272A6E] bg-[#101518] flex z-50 pb-[max(16px,env(safe-area-inset-bottom))] md:pb-0">
           {onPrev && (
             <button 
               onClick={onPrev}
