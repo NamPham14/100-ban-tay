@@ -4,17 +4,20 @@
   --font-heading: 'Space Grotesk', sans-serif;
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Lora', serif;
-  --color-warm-bg: #0a0808;
-  --color-warm-surface: #141110;
-  --color-warm-border: #1a1513;
-  --color-warm-text: #e8e4e0;
-  --color-warm-muted: #8a8580;
-  --color-accent: #D4622B;
+
+  --color-bg-main: #101518;
+  --color-text-main: #DDE1E6;
+  --color-purple-primary: #532DA3;
+  --color-purple-light: #6E2BDB;
+  --color-purple-deep: #3B2A85;
+  --color-blue-bright: #179FE8;
+  --color-blue-dark: #0C6ED9;
+  --color-blue-purple: #272A6E;
 }
 
 @layer base {
   body {
-    @apply bg-warm-bg text-warm-text font-sans overflow-x-hidden touch-manipulation;
+    @apply bg-[#101518] text-[#DDE1E6] font-sans overflow-x-hidden touch-manipulation;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -40,7 +43,7 @@
   }
 
   .text-outline {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    -webkit-text-stroke: 1px rgba(221, 225, 230, 0.2);
     color: transparent;
   }
 }

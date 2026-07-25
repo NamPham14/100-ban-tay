@@ -6,92 +6,72 @@ interface Props {
   description?: string;
   image?: string;
   url?: string;
-  storyId?: number;
 }
 
 const { 
   title = "100 Bàn Tay Dựng Xây", 
   description = "Mỗi bàn tay có một câu chuyện. 100 bàn tay dựng nên hình hài Việt Nam.",
   image = "/images/og-default.jpg",
-  url = "https://100bantay.vn",
-  storyId
+  url = "https://100bantay.vn"
 } = Astro.props;
-
-const ogImage = image;
-const canonicalUrl = storyId 
-  ? `https://100bantay.vn/story/${storyId}`
-  : url;
 ---
 <!doctype html>
-<html lang="vi" class="bg-[#0a0808] text-[#e8e4e0] scroll-smooth">
+<html lang="vi" class="bg-[#101518] text-[#DDE1E6] scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover" />
-    <meta name="theme-color" content="#0a0808" />
+    <meta name="theme-color" content="#101518" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="generator" content={Astro.generator} />
     
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
     
-    <!-- Facebook / Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:url" content={url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={title} />
-    <meta property="og:locale" content="vi_VN" />
-    <meta property="og:site_name" content="100 Bàn Tay Dựng Xây" />
-    
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
-    
-    <!-- Zalo -->
-    <meta property="article:author" content="100 Bàn Tay Dựng Xây" />
+    <meta property="og:image" content={image} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-
-    <script async src="https://cloud.umami.is/script.js" data-website-id={import.meta.env.PUBLIC_UMAMI_ID || "d2a2b2c2-1111-2222-3333-444455556666"} data-domains="100bantay.vn"></script>
   </head>
-  <body class="font-sans antialiased min-h-screen overflow-hidden selection:bg-[#D4622B] selection:text-white">
+  <body class="font-sans antialiased min-h-screen overflow-hidden selection:bg-[#6E2BDB] selection:text-white">
     
     <div class="noise-bg"></div>
 
-    {/* Architectural grid lines instead of cheesy patterns */}
-    <div class="fixed inset-0 z-0 pointer-events-none opacity-[0.03]">
-      <div class="absolute left-1/4 top-0 bottom-0 w-[1px] bg-white"></div>
-      <div class="absolute left-2/4 top-0 bottom-0 w-[1px] bg-white"></div>
-      <div class="absolute left-3/4 top-0 bottom-0 w-[1px] bg-white"></div>
-      <div class="absolute top-1/4 left-0 right-0 h-[1px] bg-white"></div>
-      <div class="absolute top-2/4 left-0 right-0 h-[1px] bg-white"></div>
-      <div class="absolute top-3/4 left-0 right-0 h-[1px] bg-white"></div>
+    {/* Architectural grid lines with deep purple-blue tint */}
+    <div class="fixed inset-0 z-0 pointer-events-none opacity-[0.05]">
+      <div class="absolute left-1/4 top-0 bottom-0 w-[1px] bg-[#272A6E]"></div>
+      <div class="absolute left-2/4 top-0 bottom-0 w-[1px] bg-[#272A6E]"></div>
+      <div class="absolute left-3/4 top-0 bottom-0 w-[1px] bg-[#272A6E]"></div>
+      <div class="absolute top-1/4 left-0 right-0 h-[1px] bg-[#272A6E]"></div>
+      <div class="absolute top-2/4 left-0 right-0 h-[1px] bg-[#272A6E]"></div>
+      <div class="absolute top-3/4 left-0 right-0 h-[1px] bg-[#272A6E]"></div>
     </div>
 
-    {/* Editorial minimalist header */}
+    {/* Editorial minimalist header featuring the logo and deep purple palette */}
     <header class="fixed top-0 left-0 w-full px-6 pt-safe z-50 mix-blend-difference mt-6 flex justify-between items-start pointer-events-none">
-      <div class="pointer-events-auto">
-        <a href="/" class="font-heading text-lg font-bold tracking-tight text-white uppercase block leading-none">
-          100 Bàn Tay
+      <div class="pointer-events-auto flex items-center gap-3">
+        <a href="/" class="block shrink-0">
+          <img src="/logo.png" alt="Logo 100 Bàn Tay" class="h-9 md:h-11 w-auto object-contain drop-shadow-[0_0_12px_rgba(110,43,219,0.5)]" />
         </a>
-        <div class="text-[10px] uppercase tracking-widest text-[#D4622B] mt-2 font-medium">
-          Dựng Xây Việt Nam
+        <div>
+          <a href="/" class="font-heading text-base md:text-lg font-bold tracking-tight text-[#DDE1E6] uppercase block leading-none hover:text-[#179FE8] transition-colors">
+            100 Bàn Tay
+          </a>
+          <div class="text-[10px] uppercase tracking-widest text-[#179FE8] mt-1.5 font-semibold">
+            Dựng Xây Việt Nam
+          </div>
         </div>
       </div>
       
       <nav class="flex flex-col items-end gap-2 pointer-events-auto">
-        <a href="/" class="text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Triển Lãm</a>
-        <a href="/about" class="text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Dự Án</a>
+        <a href="/" class="text-xs uppercase tracking-widest text-zinc-400 hover:text-[#6E2BDB] transition-colors font-medium">Triển Lãm</a>
+        <a href="/about" class="text-xs uppercase tracking-widest text-zinc-400 hover:text-[#6E2BDB] transition-colors font-medium">Dự Án</a>
       </nav>
     </header>
 
