@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Exhibition from '../../components/Exhibition.jsx';
+import stories from '../../data/stories.json';
+
+export function getStaticPaths() {
+  return stories.map((story) => {
+    return {
+      params: { id: story.id.toString() },
+      props: { story },
+    };
+  });
+}
+
+const { id } = Astro.params;
+const { story } = Astro.props;
+
+const title = `100 Bàn Tay Dựng Xây - Bàn tay của ${story.job} tại ${story.region}`;
+const description = story.story;
+const image = story.image;
+---
+
+<Layout 
+  title={title}
+  description={description}
+  image={image}
+  url={`https://100bantay.vn/story/${id}`}
+  storyId={story.id}
+>
+  <main>
+    <Exhibition client:load stories={stories} initialStoryId={id} />
+  </main>
+</Layout>
