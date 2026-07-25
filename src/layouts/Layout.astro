@@ -14,6 +14,9 @@ const {
   image = "/images/og-default.jpg",
   url = "https://100bantay.vn"
 } = Astro.props;
+
+const { pathname } = Astro.url;
+const isAbout = pathname.includes('/about');
 ---
 <!doctype html>
 <html lang="vi" class="bg-[#101518] text-[#DDE1E6] scroll-smooth">
@@ -79,8 +82,26 @@ const {
       </div>
       
       <nav class="flex items-center gap-1 bg-[#101518]/90 border border-[#272A6E] p-1.5 rounded-full backdrop-blur-md pointer-events-auto shadow-[0_0_20px_rgba(59,42,133,0.3)]">
-        <a href="/" class="px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#DDE1E6] hover:bg-[#6E2BDB]/40 hover:text-white rounded-full transition-all">Triển Lãm</a>
-        <a href="/about" class="px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#179FE8] bg-[#272A6E]/80 hover:bg-[#179FE8] hover:text-white rounded-full transition-all shadow-sm">Dự Án (About)</a>
+        <a 
+          href="/" 
+          class={`px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest rounded-full transition-all ${
+            !isAbout 
+              ? 'bg-gradient-to-r from-[#6E2BDB] to-[#179FE8] text-white shadow-[0_0_15px_rgba(23,159,232,0.5)]' 
+              : 'text-zinc-400 hover:text-[#DDE1E6] hover:bg-[#181f24]'
+          }`}
+        >
+          Triển Lãm
+        </a>
+        <a 
+          href="/about" 
+          class={`px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest rounded-full transition-all ${
+            isAbout 
+              ? 'bg-gradient-to-r from-[#6E2BDB] to-[#179FE8] text-white shadow-[0_0_15px_rgba(23,159,232,0.5)]' 
+              : 'text-zinc-400 hover:text-[#DDE1E6] hover:bg-[#181f24]'
+          }`}
+        >
+          Dự Án (About)
+        </a>
       </nav>
     </header>
 

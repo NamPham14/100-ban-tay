@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function StoryModal({ story, onClose, onNext }) {
+export default function StoryModal({ story, onClose, onNext, onPrev }) {
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -191,20 +191,31 @@ export default function StoryModal({ story, onClose, onNext }) {
 
         {/* Bottom Actions - Brutalist Cyber Footer */}
         <div className="absolute bottom-0 left-0 w-full border-t border-[#272A6E] bg-[#101518] flex z-50">
+          {onPrev && (
+            <button 
+              onClick={onPrev}
+              className="w-24 md:w-28 py-4 px-2 text-center border-r border-[#272A6E] hover:bg-[#181f24] transition-colors group flex flex-col justify-center items-center shrink-0"
+              title="Câu chuyện trước"
+            >
+              <div className="text-[11px] uppercase tracking-widest text-[#179FE8] font-bold group-hover:text-[#6E2BDB] transition-colors">&lt; Trước</div>
+            </button>
+          )}
+
           <button 
             onClick={onNext}
-            className="flex-1 py-5 px-6 text-left hover:bg-[#181f24] transition-colors group"
+            className="flex-1 py-4 px-4 text-center hover:bg-[#181f24] transition-colors group flex flex-col justify-center items-center"
+            title="Câu chuyện tiếp theo"
           >
-            <div className="text-[10px] uppercase tracking-widest text-[#179FE8] mb-1 font-semibold group-hover:text-[#6E2BDB] transition-colors">Explore</div>
-            <div className="text-sm font-bold text-[#DDE1E6] uppercase tracking-wider">Tiếp theo</div>
+            <div className="text-[10px] uppercase tracking-widest text-[#179FE8] mb-0.5 font-bold group-hover:text-[#6E2BDB] transition-colors">Tiếp theo &gt;</div>
+            <div className="text-xs font-bold text-[#DDE1E6] uppercase tracking-wider line-clamp-1">Khám phá câu chuyện mới</div>
           </button>
           
           <button 
             onClick={handleShareClick}
-            className="w-32 border-l border-[#272A6E] flex flex-col justify-center items-center hover:bg-[#532DA3] hover:text-white text-zinc-400 transition-all group"
+            className="w-24 md:w-28 border-l border-[#272A6E] flex flex-col justify-center items-center hover:bg-[#532DA3] hover:text-white text-zinc-400 transition-all group shrink-0"
           >
             <span className="text-[10px] uppercase tracking-widest font-bold group-hover:text-white">
-              {showShareMenu ? "[ Đóng ]" : "Share"}
+              {showShareMenu ? "[ Đóng ]" : "Share 🔗"}
             </span>
           </button>
         </div>
