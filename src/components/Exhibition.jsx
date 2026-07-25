@@ -69,7 +69,7 @@ export default function Exhibition({ stories, initialStoryId }) {
       <AnimatePresence>
         {!showMap && (
           <motion.div 
-            className="absolute inset-0 z-40 flex flex-col justify-end px-6 md:px-16 pb-12 md:pb-20 bg-[#101518]"
+            className="absolute inset-0 z-40 flex flex-col justify-center md:justify-end px-6 md:px-16 pt-24 pb-12 md:pt-32 md:pb-20 bg-[#101518] overflow-y-auto no-scrollbar"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
           >
@@ -148,7 +148,7 @@ export default function Exhibition({ stories, initialStoryId }) {
             transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
           >
             {/* Floating Region Filter Console */}
-            <div className="absolute top-24 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 bg-[#101518]/90 border border-[#272A6E] p-1.5 rounded-full backdrop-blur-md shadow-[0_0_30px_rgba(59,42,133,0.35)] max-w-[95vw] overflow-x-auto no-scrollbar">
+            <div className="absolute top-20 md:top-24 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 bg-[#101518]/90 border border-[#272A6E] p-1.5 rounded-full backdrop-blur-md shadow-[0_0_30px_rgba(59,42,133,0.35)] max-w-[95vw] overflow-x-auto no-scrollbar">
               {regions.map((tab) => {
                 const active = selectedRegion === tab.id;
                 return (
@@ -182,7 +182,7 @@ export default function Exhibition({ stories, initialStoryId }) {
               >
                 {({ zoomIn, zoomOut, resetTransform }) => (
                   <>
-                    <TransformComponent wrapperClass="!w-full !h-full" contentClass="w-max h-max min-w-full min-h-full flex items-center justify-center p-12 md:p-24">
+                    <TransformComponent wrapperClass="!w-full !h-full" contentClass="w-max h-max min-w-full min-h-full flex items-center justify-center pt-44 pb-32 px-8 md:p-28 md:pt-36">
                         <div 
                           className="grid gap-[2px] md:gap-[3px] relative mx-auto" 
                           style={{ 
