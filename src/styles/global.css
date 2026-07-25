@@ -4,11 +4,17 @@
   --font-heading: 'Space Grotesk', sans-serif;
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Lora', serif;
+  --color-warm-bg: #0a0808;
+  --color-warm-surface: #141110;
+  --color-warm-border: #1a1513;
+  --color-warm-text: #e8e4e0;
+  --color-warm-muted: #8a8580;
+  --color-accent: #D4622B;
 }
 
 @layer base {
   body {
-    @apply bg-[#0c0c0c] text-[#e5e5e5] font-sans overflow-x-hidden touch-manipulation;
+    @apply bg-warm-bg text-warm-text font-sans overflow-x-hidden touch-manipulation;
     -webkit-tap-highlight-color: transparent;
   }
 

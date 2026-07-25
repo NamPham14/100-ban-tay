@@ -45,82 +45,83 @@ export default function Exhibition({ stories, initialStoryId }) {
   };
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-[#0c0c0c] text-[#e5e5e5] touch-none">
+    <div className="relative w-screen h-screen overflow-hidden bg-[#0a0808] text-[#e8e4e0] touch-none">
       
-      {/* Landing Page - Stark Brutalist Typography */}
+      {/* Landing Page */}
       <AnimatePresence>
         {!showMap && (
           <motion.div 
-            className="absolute inset-0 z-40 flex flex-col justify-end px-6 md:px-12 pb-safe bg-[#0c0c0c]"
+            className="absolute inset-0 z-40 flex flex-col justify-center md:justify-end px-6 md:px-12 bg-[#0a0808]"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
           >
-            <div className="absolute inset-0 z-0 opacity-20">
-               {/* Use the first story's image as a stark, high-contrast background */}
+            {/* Background hand image */}
+            <div className="absolute inset-0 z-0 opacity-15 md:opacity-20">
                <img src={stories[0]?.image} alt="" className="w-full h-full object-cover grayscale contrast-150" />
-               <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-[#0c0c0c]/80 to-transparent"></div>
+               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0808] via-[#0a0808]/60 to-transparent"></div>
             </div>
 
-            <div className="relative z-10 w-full max-w-5xl mb-12 md:mb-20">
+            <div className="relative z-10 w-full max-w-5xl">
               <motion.div
                 initial={{ opacity: 0, scaleX: 0 }}
                 animate={{ opacity: 1, scaleX: 1 }}
                 transition={{ duration: 1, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
-                className="w-16 md:w-24 h-[2px] bg-[#FF5C00] mb-8 md:mb-12 origin-left"
+                className="w-12 md:w-20 h-[2px] bg-[#D4622B] mb-6 md:mb-10 origin-left"
               ></motion.div>
 
-              <div className="overflow-hidden mb-2">
+              <div className="overflow-hidden mb-1">
                 <motion.h1 
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
-                  className="font-heading text-6xl sm:text-7xl md:text-[9rem] lg:text-[11rem] font-bold text-white leading-[0.85] tracking-tighter uppercase"
+                  className="font-heading text-5xl sm:text-6xl md:text-[8rem] lg:text-[10rem] font-bold text-white leading-[0.85] tracking-tighter uppercase"
                 >
                   100 Bàn Tay
                 </motion.h1>
               </div>
-              <div className="overflow-hidden mb-8 md:mb-12">
+              <div className="overflow-hidden mb-4 md:mb-8">
                 <motion.h1 
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}
-                  className="font-heading text-5xl sm:text-6xl md:text-[7rem] lg:text-[9rem] font-bold text-[#FF5C00] leading-[0.9] tracking-tighter uppercase"
+                  className="font-heading text-4xl sm:text-5xl md:text-[6rem] lg:text-[8rem] font-bold text-[#D4622B] leading-[0.9] tracking-tighter uppercase"
                 >
                   Dựng Xây.
                 </motion.h1>
               </div>
-              
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 w-full border-t border-zinc-800 pt-8">
-                <motion.p 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.8 }}
-                  className="text-sm md:text-base text-zinc-400 max-w-sm font-light leading-relaxed"
-                >
-                  Dự án triển lãm số lưu trữ những câu chuyện đời thường của người thợ xây dựng Việt Nam. Mộc mạc, thô ráp, và nguyên bản.
-                </motion.p>
-                
-                <motion.button 
-                  onClick={() => setShowMap(true)}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.9 }}
-                  className="group flex items-center gap-4 text-white hover:text-[#FF5C00] transition-colors"
-                >
-                  <span className="font-heading text-sm uppercase tracking-[0.2em] font-medium">Bắt đầu khám phá</span>
-                  <div className="w-12 h-12 border border-zinc-700 rounded-full flex items-center justify-center group-hover:border-[#FF5C00] transition-colors">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </motion.button>
-              </div>
+
+              <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.6 }}
+                className="text-sm md:text-base text-[#8a8580] max-w-xs font-light leading-relaxed"
+              >
+                Mỗi bàn tay có một câu chuyện. 100 bàn tay dựng nên hình hài Việt Nam.
+              </motion.p>
             </div>
+
+            {/* Fixed CTA Button - always visible on mobile */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="relative z-10 w-full pb-6 pt-4 md:pb-12"
+            >
+              <button 
+                onClick={() => setShowMap(true)}
+                className="w-full h-14 bg-[#D4622B] text-white font-heading font-bold text-sm uppercase tracking-[0.2em] hover:bg-[#b85422] active:scale-[0.98] transition-all flex items-center justify-center gap-3"
+              >
+                Bắt đầu khám phá
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Map View - Architectural strictness */}
+      {/* Map View */}
       <AnimatePresence>
         {showMap && (
           <motion.div 
@@ -173,8 +174,8 @@ export default function Exhibition({ stories, initialStoryId }) {
                               className="relative w-full h-full block"
                               aria-label={`Câu chuyện ${story.id}`}
                             >
-                              <div className={`w-full h-full bg-[#111] overflow-hidden transition-all duration-300 ${
-                                isSelected || isHovered ? 'border border-[#FF5C00]' : 'border border-zinc-800'
+                              <div className={`w-full h-full bg-[#141110] overflow-hidden transition-all duration-300 ${
+                                isSelected || isHovered ? 'border border-[#D4622B]' : 'border border-[#1a1513]'
                               }`}>
                                 <img 
                                   src={story.thumbnail} 
@@ -187,7 +188,6 @@ export default function Exhibition({ stories, initialStoryId }) {
                               </div>
                             </motion.button>
                             
-                            {/* Minimalist tooltip */}
                             <AnimatePresence>
                               {isHovered && !selectedStory && (
                                 <motion.div
@@ -197,7 +197,7 @@ export default function Exhibition({ stories, initialStoryId }) {
                                   transition={{ duration: 0.2 }}
                                   className="absolute top-1/2 left-full ml-4 -translate-y-1/2 z-50 pointer-events-none whitespace-nowrap hidden md:block"
                                 >
-                                  <div className="text-[10px] uppercase tracking-widest text-zinc-400 font-medium">
+                                  <div className="text-[10px] uppercase tracking-widest text-[#8a8580] font-medium">
                                     {String(story.id).padStart(3, '0')} — {story.region}
                                   </div>
                                 </motion.div>
@@ -213,9 +213,9 @@ export default function Exhibition({ stories, initialStoryId }) {
             </div>
             
             {/* Status bar */}
-            <div className="absolute bottom-0 left-0 w-full h-12 border-t border-zinc-800 bg-[#0c0c0c]/80 backdrop-blur-md flex items-center justify-between px-6 z-20 pointer-events-none">
-              <div className="text-[10px] uppercase tracking-widest text-zinc-500">Kéo / Thu phóng để tương tác</div>
-              <div className="text-[10px] uppercase tracking-widest text-zinc-500">100 Records</div>
+            <div className="absolute bottom-0 left-0 w-full h-12 border-t border-[#1a1513] bg-[#0a0808]/80 backdrop-blur-md flex items-center justify-between px-6 z-20 pointer-events-none">
+              <div className="text-[10px] uppercase tracking-widest text-[#8a8580]">Kéo / Thu phóng để tương tác</div>
+              <div className="text-[10px] uppercase tracking-widest text-[#8a8580]">100 Records</div>
             </div>
           </motion.div>
         )}
