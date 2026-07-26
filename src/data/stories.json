@@ -32,8 +32,8 @@
     "job": "Thợ sắt",
     "region": "Miền Bắc",
     "stat": "8.000 mẻ vữa",
-    "grid_row": 3,
-    "grid_col": 6
+    "grid_row": 2,
+    "grid_col": 9
   },
   {
     "id": 4,
@@ -45,7 +45,7 @@
     "region": "Miền Bắc",
     "stat": "3.000 ổ cắm",
     "grid_row": 3,
-    "grid_col": 7
+    "grid_col": 6
   },
   {
     "id": 5,
@@ -57,7 +57,7 @@
     "region": "Miền Bắc",
     "stat": "3.000 ổ cắm",
     "grid_row": 3,
-    "grid_col": 8
+    "grid_col": 7
   },
   {
     "id": 6,
@@ -69,7 +69,7 @@
     "region": "Miền Bắc",
     "stat": "20 năm kinh nghiệm",
     "grid_row": 3,
-    "grid_col": 9
+    "grid_col": 8
   },
   {
     "id": 7,
@@ -81,7 +81,7 @@
     "region": "Miền Bắc",
     "stat": "3.000 ổ cắm",
     "grid_row": 3,
-    "grid_col": 10
+    "grid_col": 9
   },
   {
     "id": 8,
@@ -92,8 +92,8 @@
     "job": "Thợ lợp mái",
     "region": "Miền Bắc",
     "stat": "500 căn phòng",
-    "grid_row": 4,
-    "grid_col": 5
+    "grid_row": 3,
+    "grid_col": 10
   },
   {
     "id": 9,
@@ -105,7 +105,7 @@
     "region": "Miền Bắc",
     "stat": "12 km thép",
     "grid_row": 4,
-    "grid_col": 6
+    "grid_col": 5
   },
   {
     "id": 10,
@@ -117,7 +117,7 @@
     "region": "Miền Bắc",
     "stat": "10.000 giờ",
     "grid_row": 4,
-    "grid_col": 7
+    "grid_col": 6
   },
   {
     "id": 11,
@@ -129,7 +129,7 @@
     "region": "Miền Bắc",
     "stat": "5 tấn xi măng",
     "grid_row": 4,
-    "grid_col": 8
+    "grid_col": 7
   },
   {
     "id": 12,
@@ -141,7 +141,7 @@
     "region": "Miền Bắc",
     "stat": "500 căn phòng",
     "grid_row": 4,
-    "grid_col": 9
+    "grid_col": 8
   },
   {
     "id": 13,
@@ -153,7 +153,7 @@
     "region": "Miền Bắc",
     "stat": "500 căn phòng",
     "grid_row": 4,
-    "grid_col": 10
+    "grid_col": 9
   },
   {
     "id": 14,
@@ -164,8 +164,8 @@
     "job": "Thợ hồ",
     "region": "Miền Bắc",
     "stat": "12 km thép",
-    "grid_row": 5,
-    "grid_col": 4
+    "grid_row": 4,
+    "grid_col": 10
   },
   {
     "id": 15,
@@ -177,7 +177,7 @@
     "region": "Miền Bắc",
     "stat": "12 km thép",
     "grid_row": 5,
-    "grid_col": 5
+    "grid_col": 4
   },
   {
     "id": 16,
@@ -189,7 +189,7 @@
     "region": "Miền Bắc",
     "stat": "3.000 ổ cắm",
     "grid_row": 5,
-    "grid_col": 6
+    "grid_col": 5
   },
   {
     "id": 17,
@@ -201,7 +201,7 @@
     "region": "Miền Bắc",
     "stat": "10.000 giờ",
     "grid_row": 5,
-    "grid_col": 7
+    "grid_col": 6
   },
   {
     "id": 18,
@@ -213,7 +213,7 @@
     "region": "Miền Bắc",
     "stat": "8.000 mẻ vữa",
     "grid_row": 5,
-    "grid_col": 8
+    "grid_col": 7
   },
   {
     "id": 19,
@@ -225,7 +225,7 @@
     "region": "Miền Bắc",
     "stat": "10.000 giờ",
     "grid_row": 5,
-    "grid_col": 9
+    "grid_col": 8
   },
   {
     "id": 20,
@@ -236,8 +236,8 @@
     "job": "Thợ sơn",
     "region": "Miền Bắc",
     "stat": "20 năm kinh nghiệm",
-    "grid_row": 6,
-    "grid_col": 5
+    "grid_row": 5,
+    "grid_col": 9
   },
   {
     "id": 21,
@@ -249,7 +249,7 @@
     "region": "Miền Bắc",
     "stat": "500 căn phòng",
     "grid_row": 6,
-    "grid_col": 6
+    "grid_col": 5
   },
   {
     "id": 22,
@@ -261,7 +261,7 @@
     "region": "Miền Bắc",
     "stat": "12 km thép",
     "grid_row": 6,
-    "grid_col": 7
+    "grid_col": 6
   },
   {
     "id": 23,
@@ -273,7 +273,7 @@
     "region": "Miền Bắc",
     "stat": "500 căn phòng",
     "grid_row": 6,
-    "grid_col": 8
+    "grid_col": 7
   },
   {
     "id": 24,
@@ -285,7 +285,7 @@
     "region": "Miền Bắc",
     "stat": "8.000 mẻ vữa",
     "grid_row": 6,
-    "grid_col": 9
+    "grid_col": 8
   },
   {
     "id": 25,
@@ -296,8 +296,8 @@
     "job": "Thợ nước",
     "region": "Miền Bắc",
     "stat": "500 căn phòng",
-    "grid_row": 7,
-    "grid_col": 6
+    "grid_row": 6,
+    "grid_col": 9
   },
   {
     "id": 26,
@@ -308,8 +308,8 @@
     "job": "Thợ sắt",
     "region": "Miền Bắc",
     "stat": "3.000 ổ cắm",
-    "grid_row": 7,
-    "grid_col": 7
+    "grid_row": 6,
+    "grid_col": 10
   },
   {
     "id": 27,
@@ -321,7 +321,7 @@
     "region": "Miền Bắc",
     "stat": "8.000 mẻ vữa",
     "grid_row": 7,
-    "grid_col": 8
+    "grid_col": 6
   },
   {
     "id": 28,
@@ -332,7 +332,7 @@
     "job": "Thợ điện",
     "region": "Miền Bắc",
     "stat": "10.000 giờ",
-    "grid_row": 8,
+    "grid_row": 7,
     "grid_col": 7
   },
   {
@@ -344,7 +344,7 @@
     "job": "Thợ sắt",
     "region": "Miền Bắc",
     "stat": "500 căn phòng",
-    "grid_row": 8,
+    "grid_row": 7,
     "grid_col": 8
   },
   {
@@ -356,79 +356,79 @@
     "job": "Thợ chống thấm",
     "region": "Miền Bắc",
     "stat": "5 tấn xi măng",
-    "grid_row": 9,
-    "grid_col": 8
+    "grid_row": 7,
+    "grid_col": 9
   },
   {
     "id": 31,
     "image": "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=800&q=80",
     "thumbnail": "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=250&q=80",
-    "story": "Đôi tay này đã gắn bó với nghề đốc công. Mỗi ngày trôi qua trên công trường Miền Trung là một ngày cống hiến. Bàn tay chai sạn vì nắng gió, nhưng vẫn miệt mài làm việc. 'Làm nghề này cực, nhưng nhìn công trình mọc lên lại thấy vui.'",
+    "story": "Đôi tay này đã gắn bó với nghề đốc công. Mỗi ngày trôi qua trên công trường Miền Bắc là một ngày cống hiến. Bàn tay chai sạn vì nắng gió, nhưng vẫn miệt mài làm việc. 'Làm nghề này cực, nhưng nhìn công trình mọc lên lại thấy vui.'",
     "quote": "Nặng nhất không phải sắt thép, là nỗi nhớ nhà.",
     "job": "Đốc công",
-    "region": "Miền Trung",
+    "region": "Miền Bắc",
     "stat": "3.000 ổ cắm",
-    "grid_row": 10,
-    "grid_col": 8
+    "grid_row": 7,
+    "grid_col": 10
   },
   {
     "id": 32,
     "image": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80",
     "thumbnail": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=250&q=80",
-    "story": "Đôi tay này đã gắn bó với nghề thợ sơn. Mỗi ngày trôi qua trên công trường Miền Trung là một ngày cống hiến. Bàn tay chai sạn vì nắng gió, nhưng vẫn miệt mài làm việc. 'Làm nghề này cực, nhưng nhìn công trình mọc lên lại thấy vui.'",
+    "story": "Đôi tay này đã gắn bó với nghề thợ sơn. Mỗi ngày trôi qua trên công trường Miền Bắc là một ngày cống hiến. Bàn tay chai sạn vì nắng gió, nhưng vẫn miệt mài làm việc. 'Làm nghề này cực, nhưng nhìn công trình mọc lên lại thấy vui.'",
     "quote": "Nặng nhất không phải sắt thép, là nỗi nhớ nhà.",
     "job": "Thợ sơn",
-    "region": "Miền Trung",
+    "region": "Miền Bắc",
     "stat": "10.000 giờ",
-    "grid_row": 10,
-    "grid_col": 9
+    "grid_row": 8,
+    "grid_col": 7
   },
   {
     "id": 33,
     "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
     "thumbnail": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=250&q=80",
-    "story": "Đôi tay này đã gắn bó với nghề lái cẩu tháp. Mỗi ngày trôi qua trên công trường Miền Trung là một ngày cống hiến. Bàn tay chai sạn vì nắng gió, nhưng vẫn miệt mài làm việc. 'Làm nghề này cực, nhưng nhìn công trình mọc lên lại thấy vui.'",
+    "story": "Đôi tay này đã gắn bó với nghề lái cẩu tháp. Mỗi ngày trôi qua trên công trường Miền Bắc là một ngày cống hiến. Bàn tay chai sạn vì nắng gió, nhưng vẫn miệt mài làm việc. 'Làm nghề này cực, nhưng nhìn công trình mọc lên lại thấy vui.'",
     "quote": "Nặng nhất không phải sắt thép, là nỗi nhớ nhà.",
     "job": "Lái cẩu tháp",
-    "region": "Miền Trung",
+    "region": "Miền Bắc",
     "stat": "8.000 mẻ vữa",
-    "grid_row": 11,
+    "grid_row": 8,
     "grid_col": 8
   },
   {
     "id": 34,
     "image": "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80",
     "thumbnail": "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=250&q=80",
-    "story": "Đôi tay này đã gắn bó với nghề thợ hồ. Mỗi ngày trôi qua trên công trường Miền Trung là một ngày cống hiến. Bàn tay chai sạn vì nắng gió, nhưng vẫn miệt mài làm việc. 'Làm nghề này cực, nhưng nhìn công trình mọc lên lại thấy vui.'",
+    "story": "Đôi tay này đã gắn bó với nghề thợ hồ. Mỗi ngày trôi qua trên công trường Miền Bắc là một ngày cống hiến. Bàn tay chai sạn vì nắng gió, nhưng vẫn miệt mài làm việc. 'Làm nghề này cực, nhưng nhìn công trình mọc lên lại thấy vui.'",
     "quote": "Nặng nhất không phải sắt thép, là nỗi nhớ nhà.",
     "job": "Thợ hồ",
-    "region": "Miền Trung",
+    "region": "Miền Bắc",
     "stat": "8.000 mẻ vữa",
-    "grid_row": 11,
+    "grid_row": 8,
     "grid_col": 9
   },
   {
     "id": 35,
     "image": "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80",
     "thumbnail": "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=250&q=80",
-    "story": "Đôi tay này đã gắn bó với nghề thợ nước. Mỗi ngày trôi qua trên công trường Miền Trung là một ngày cống hiến. Bàn tay chai sạn vì nắng gió, nhưng vẫn miệt mài làm việc. 'Làm nghề này cực, nhưng nhìn công trình mọc lên lại thấy vui.'",
+    "story": "Đôi tay này đã gắn bó với nghề thợ nước. Mỗi ngày trôi qua trên công trường Miền Bắc là một ngày cống hiến. Bàn tay chai sạn vì nắng gió, nhưng vẫn miệt mài làm việc. 'Làm nghề này cực, nhưng nhìn công trình mọc lên lại thấy vui.'",
     "quote": "Nặng nhất không phải sắt thép, là nỗi nhớ nhà.",
     "job": "Thợ nước",
-    "region": "Miền Trung",
+    "region": "Miền Bắc",
     "stat": "500 căn phòng",
-    "grid_row": 11,
-    "grid_col": 10
+    "grid_row": 9,
+    "grid_col": 8
   },
   {
     "id": 36,
     "image": "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=800&q=80",
     "thumbnail": "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=250&q=80",
-    "story": "Đôi tay này đã gắn bó với nghề thợ nước. Mỗi ngày trôi qua trên công trường Miền Trung là một ngày cống hiến. Bàn tay chai sạn vì nắng gió, nhưng vẫn miệt mài làm việc. 'Làm nghề này cực, nhưng nhìn công trình mọc lên lại thấy vui.'",
+    "story": "Đôi tay này đã gắn bó với nghề thợ nước. Mỗi ngày trôi qua trên công trường Miền Bắc là một ngày cống hiến. Bàn tay chai sạn vì nắng gió, nhưng vẫn miệt mài làm việc. 'Làm nghề này cực, nhưng nhìn công trình mọc lên lại thấy vui.'",
     "quote": "Nặng nhất không phải sắt thép, là nỗi nhớ nhà.",
     "job": "Thợ nước",
-    "region": "Miền Trung",
+    "region": "Miền Bắc",
     "stat": "12 km thép",
-    "grid_row": 12,
+    "grid_row": 9,
     "grid_col": 9
   },
   {
@@ -440,8 +440,8 @@
     "job": "Đốc công",
     "region": "Miền Trung",
     "stat": "500 căn phòng",
-    "grid_row": 12,
-    "grid_col": 10
+    "grid_row": 10,
+    "grid_col": 8
   },
   {
     "id": 38,
@@ -452,8 +452,8 @@
     "job": "Thợ sắt",
     "region": "Miền Trung",
     "stat": "500 căn phòng",
-    "grid_row": 12,
-    "grid_col": 11
+    "grid_row": 10,
+    "grid_col": 9
   },
   {
     "id": 39,
@@ -464,7 +464,7 @@
     "job": "Lái cẩu tháp",
     "region": "Miền Trung",
     "stat": "12 km thép",
-    "grid_row": 13,
+    "grid_row": 11,
     "grid_col": 9
   },
   {
@@ -476,7 +476,7 @@
     "job": "Thợ điện",
     "region": "Miền Trung",
     "stat": "3.000 ổ cắm",
-    "grid_row": 13,
+    "grid_row": 11,
     "grid_col": 10
   },
   {
@@ -488,8 +488,8 @@
     "job": "Thợ hồ",
     "region": "Miền Trung",
     "stat": "12 km thép",
-    "grid_row": 13,
-    "grid_col": 11
+    "grid_row": 12,
+    "grid_col": 9
   },
   {
     "id": 42,
@@ -500,8 +500,8 @@
     "job": "Thợ chống thấm",
     "region": "Miền Trung",
     "stat": "10.000 giờ",
-    "grid_row": 14,
-    "grid_col": 9
+    "grid_row": 12,
+    "grid_col": 10
   },
   {
     "id": 43,
@@ -512,7 +512,7 @@
     "job": "Thợ mộc",
     "region": "Miền Trung",
     "stat": "500 căn phòng",
-    "grid_row": 14,
+    "grid_row": 13,
     "grid_col": 10
   },
   {
@@ -524,7 +524,7 @@
     "job": "Lái cẩu tháp",
     "region": "Miền Trung",
     "stat": "10.000 giờ",
-    "grid_row": 14,
+    "grid_row": 13,
     "grid_col": 11
   },
   {
@@ -536,7 +536,7 @@
     "job": "Lái cẩu tháp",
     "region": "Miền Trung",
     "stat": "3.000 ổ cắm",
-    "grid_row": 15,
+    "grid_row": 14,
     "grid_col": 10
   },
   {
@@ -548,7 +548,7 @@
     "job": "Thợ sơn",
     "region": "Miền Trung",
     "stat": "3.000 ổ cắm",
-    "grid_row": 15,
+    "grid_row": 14,
     "grid_col": 11
   },
   {
@@ -561,7 +561,7 @@
     "region": "Miền Trung",
     "stat": "3.000 ổ cắm",
     "grid_row": 15,
-    "grid_col": 12
+    "grid_col": 11
   },
   {
     "id": 48,
@@ -572,8 +572,8 @@
     "job": "Thợ hồ",
     "region": "Miền Trung",
     "stat": "10.000 giờ",
-    "grid_row": 16,
-    "grid_col": 11
+    "grid_row": 15,
+    "grid_col": 12
   },
   {
     "id": 49,
@@ -585,7 +585,7 @@
     "region": "Miền Trung",
     "stat": "500 căn phòng",
     "grid_row": 16,
-    "grid_col": 12
+    "grid_col": 11
   },
   {
     "id": 50,
@@ -596,8 +596,8 @@
     "job": "Thợ điện",
     "region": "Miền Trung",
     "stat": "12 km thép",
-    "grid_row": 17,
-    "grid_col": 11
+    "grid_row": 16,
+    "grid_col": 12
   },
   {
     "id": 51,
@@ -609,7 +609,7 @@
     "region": "Miền Trung",
     "stat": "10.000 giờ",
     "grid_row": 17,
-    "grid_col": 12
+    "grid_col": 11
   },
   {
     "id": 52,
@@ -621,7 +621,7 @@
     "region": "Miền Trung",
     "stat": "3.000 ổ cắm",
     "grid_row": 17,
-    "grid_col": 13
+    "grid_col": 12
   },
   {
     "id": 53,
@@ -632,8 +632,8 @@
     "job": "Thợ hồ",
     "region": "Miền Trung",
     "stat": "500 căn phòng",
-    "grid_row": 18,
-    "grid_col": 12
+    "grid_row": 17,
+    "grid_col": 13
   },
   {
     "id": 54,
@@ -645,7 +645,7 @@
     "region": "Miền Trung",
     "stat": "3.000 ổ cắm",
     "grid_row": 18,
-    "grid_col": 13
+    "grid_col": 12
   },
   {
     "id": 55,
@@ -656,8 +656,8 @@
     "job": "Thợ mộc",
     "region": "Miền Trung",
     "stat": "8.000 mẻ vữa",
-    "grid_row": 19,
-    "grid_col": 12
+    "grid_row": 18,
+    "grid_col": 13
   },
   {
     "id": 56,
@@ -669,7 +669,7 @@
     "region": "Miền Trung",
     "stat": "10.000 giờ",
     "grid_row": 19,
-    "grid_col": 13
+    "grid_col": 12
   },
   {
     "id": 57,
@@ -681,7 +681,7 @@
     "region": "Miền Trung",
     "stat": "8.000 mẻ vữa",
     "grid_row": 19,
-    "grid_col": 14
+    "grid_col": 13
   },
   {
     "id": 58,
@@ -692,8 +692,8 @@
     "job": "Thợ chống thấm",
     "region": "Miền Trung",
     "stat": "20 năm kinh nghiệm",
-    "grid_row": 20,
-    "grid_col": 12
+    "grid_row": 19,
+    "grid_col": 14
   },
   {
     "id": 59,
@@ -705,7 +705,7 @@
     "region": "Miền Trung",
     "stat": "5 tấn xi măng",
     "grid_row": 20,
-    "grid_col": 13
+    "grid_col": 12
   },
   {
     "id": 60,
@@ -716,8 +716,8 @@
     "job": "Đốc công",
     "region": "Miền Trung",
     "stat": "20 năm kinh nghiệm",
-    "grid_row": 21,
-    "grid_col": 11
+    "grid_row": 20,
+    "grid_col": 13
   },
   {
     "id": 61,
@@ -729,7 +729,7 @@
     "region": "Miền Trung",
     "stat": "3.000 ổ cắm",
     "grid_row": 21,
-    "grid_col": 12
+    "grid_col": 11
   },
   {
     "id": 62,
@@ -741,7 +741,7 @@
     "region": "Miền Trung",
     "stat": "20 năm kinh nghiệm",
     "grid_row": 21,
-    "grid_col": 13
+    "grid_col": 12
   },
   {
     "id": 63,
