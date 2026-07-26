@@ -178,11 +178,11 @@ export default function Exhibition({ stories, initialStoryId }) {
                 pinch={{ step: 5 }}
                 panning={{ velocityDisabled: false, lockAxisY: false, lockAxisX: false }}
                 doubleClick={{ disabled: true }}
-                limitToBounds={true}
+                limitToBounds={false}
               >
                 {({ zoomIn, zoomOut, resetTransform }) => (
                   <>
-                    <TransformComponent wrapperClass="!w-full !h-full" contentClass="w-max h-max min-w-full min-h-full flex items-center justify-center pt-44 pb-32 px-8 md:p-28 md:pt-36">
+                    <TransformComponent wrapperClass="!w-full !h-full" contentClass="w-max h-max min-w-full min-h-full flex items-center justify-center pt-64 pb-48 px-8 md:p-28 md:pt-60 md:pb-48">
                         <div 
                           className="grid gap-[2px] md:gap-[3px] relative mx-auto" 
                           style={{ 
