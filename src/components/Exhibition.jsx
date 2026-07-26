@@ -187,7 +187,7 @@ export default function Exhibition({ stories, initialStoryId }) {
                           className="grid gap-[2px] md:gap-[3px] relative mx-auto" 
                           style={{ 
                             gridTemplateColumns: 'repeat(18, 32px)', 
-                            gridTemplateRows: 'repeat(25, 32px)' 
+                            gridTemplateRows: 'repeat(32, 32px)' 
                           }}
                         >
                           {stories.map((story) => {
