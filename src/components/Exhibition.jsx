@@ -191,7 +191,11 @@ export default function Exhibition({ stories, initialStoryId }) {
                           }}
                         >
                           {stories.map((story) => {
-                            const delay = story.grid_row * 0.015;
+                            // Hiệu ứng 1: "Lên đèn" (Staggered Fade In)
+                            // Dùng toán học để tạo delay ngẫu nhiên nhưng cố định theo ID (0.2s -> 1.8s) để không bị nháy khi React render lại
+                            const pseudoRandom = Math.abs(Math.sin(story.id * 43.21)) * 1.6;
+                            const delay = 0.2 + pseudoRandom;
+                            
                             const isSelected = selectedStory?.id === story.id;
                             const isHovered = hoveredStory?.id === story.id;
                             
@@ -212,9 +216,13 @@ export default function Exhibition({ stories, initialStoryId }) {
                               >
                                 <motion.button
                                   onClick={() => openStory(story)}
-                                  initial={{ opacity: 0, scale: 0.95 }}
-                                  animate={{ opacity: isLoaded ? 1 : 0, scale: 1 }}
-                                  transition={{ duration: 0.5, delay, ease: [0.76, 0, 0.24, 1] }}
+                                  initial={{ opacity: 0, scale: 0.5, filter: 'brightness(3) blur(2px)' }}
+                                  animate={
+                                    isLoaded 
+                                      ? { opacity: 1, scale: 1, filter: 'brightness(1) blur(0px)' }
+                                      : { opacity: 0, scale: 0.5, filter: 'brightness(3) blur(2px)' }
+                                  }
+                                  transition={{ duration: 1.5, delay, ease: [0.22, 1, 0.36, 1] }}
                                   className="relative w-full h-full block"
                                   aria-label={`Câu chuyện ${story.id}`}
                                 >
