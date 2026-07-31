@@ -224,6 +224,7 @@ export default function Exhibition({ stories, initialStoryId }) {
                                   }
                                   transition={{ duration: 1.5, delay, ease: [0.22, 1, 0.36, 1] }}
                                   className="relative w-full h-full block"
+                                  style={{ willChange: 'transform, opacity, filter' }}
                                   aria-label={`Câu chuyện ${story.id}`}
                                 >
                                   <div className={`w-full h-full bg-[#181f24] overflow-hidden transition-all duration-300 ${
@@ -232,12 +233,13 @@ export default function Exhibition({ stories, initialStoryId }) {
                                     isSelected || isHovered ? 'border-2 border-[#179FE8] shadow-[0_0_18px_rgba(23,159,232,0.9)] scale-125 z-40' : (isRegionMatch && selectedRegion !== 'all' ? 'border border-[#179FE8]/80 shadow-[0_0_8px_rgba(23,159,232,0.3)]' : 'border border-[#272A6E]/60')
                                   }`}>
                                     <img 
-                                      src={story.image} 
+                                      src={story.thumbnail || story.image} 
                                       alt="" 
                                       className={`w-full h-full object-cover transition-all duration-500 ease-out ${
                                         isSelected || isHovered ? 'grayscale-0 opacity-100 scale-110' : 'grayscale opacity-70'
                                       }`}
                                       loading="lazy"
+                                      decoding="async"
                                     />
                                   </div>
                                 </motion.button>
