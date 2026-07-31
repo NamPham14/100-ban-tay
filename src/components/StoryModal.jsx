@@ -116,25 +116,25 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
                 {story.region}
               </div>
               <div className="text-xs uppercase tracking-widest text-[#179FE8] font-bold bg-[#0C6ED9]/20 px-3 py-1 border border-[#179FE8]/40">
-                {story.job}
+                {story.role || story.job}
               </div>
             </div>
 
-            <h2 className="font-heading text-5xl md:text-7xl font-bold text-[#DDE1E6] mb-10 leading-[0.9] tracking-tighter uppercase drop-shadow-[0_0_20px_rgba(110,43,219,0.25)]">
-              {story.stat}
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold text-[#DDE1E6] mb-10 leading-[1.1] tracking-tighter uppercase drop-shadow-[0_0_20px_rgba(110,43,219,0.25)]">
+              {story.title}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-[1fr_2px_1fr] gap-8 mb-12">
-              <p className="text-zinc-300 text-sm md:text-base leading-relaxed font-light">
-                {story.story}
-              </p>
+              <div className="text-zinc-300 text-sm md:text-base leading-relaxed font-light space-y-4">
+                {story.story.split('\n').map((p, i) => p.trim() ? <p key={i}>{p}</p> : null)}
+              </div>
               <div className="hidden md:block w-[1px] bg-[#272A6E]"></div>
               <div className="relative">
                 <svg className="w-6 h-6 text-[#532DA3] mb-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <p className="font-serif text-lg md:text-xl text-[#DDE1E6] italic font-medium leading-snug">
-                  {story.quote}
+                  "{story.quote || story.story.split('\n')[0]}"
                 </p>
               </div>
             </div>

@@ -232,7 +232,7 @@ export default function Exhibition({ stories, initialStoryId }) {
                                     isSelected || isHovered ? 'border-2 border-[#179FE8] shadow-[0_0_18px_rgba(23,159,232,0.9)] scale-125 z-40' : (isRegionMatch && selectedRegion !== 'all' ? 'border border-[#179FE8]/80 shadow-[0_0_8px_rgba(23,159,232,0.3)]' : 'border border-[#272A6E]/60')
                                   }`}>
                                     <img 
-                                      src={story.thumbnail} 
+                                      src={story.image} 
                                       alt="" 
                                       className={`w-full h-full object-cover transition-all duration-500 ease-out ${
                                         isSelected || isHovered ? 'grayscale-0 opacity-100 scale-110' : 'grayscale opacity-70'
@@ -261,8 +261,8 @@ export default function Exhibition({ stories, initialStoryId }) {
                                             {story.region}
                                           </span>
                                         </div>
-                                        <div className="text-xs font-bold text-[#DDE1E6] mb-1">{story.job}</div>
-                                        <div className="text-[11px] text-zinc-300 italic line-clamp-2 font-serif">"{story.quote}"</div>
+                                        <div className="text-xs font-bold text-[#DDE1E6] mb-1">{story.role || story.job}</div>
+                                        <div className="text-[11px] text-zinc-300 italic line-clamp-2 font-serif">"{story.quote || story.story.split('\n')[0]}"</div>
                                       </div>
                                     </motion.div>
                                   )}
