@@ -1,11 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Exhibition from '../components/Exhibition.jsx';
-import stories from '../data/stories.json';
+import LandingPage from '../components/LandingPage.jsx';
 ---
 
 <Layout>
   <main>
-    <Exhibition client:load stories={stories} />
+    <LandingPage client:load />
   </main>
 </Layout>

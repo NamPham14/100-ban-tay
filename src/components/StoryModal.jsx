@@ -19,7 +19,7 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
   };
 
   const getShareText = () => {
-    return `100 Bàn Tay Dựng Xây - Câu chuyện của ${story.job} tại ${story.region}:\n"${story.quote}"\n\n👉 Khám phá tại: ${getShareUrl()}`;
+    return `100 Bàn Tay Dựng Xây - Câu chuyện của ${story.job} tại ${story.region}:\n"${story.quote || story.story.split('\n')[0]}"\n\n👉 Khám phá tại: ${getShareUrl()}`;
   };
 
   const copyToClipboard = () => {
@@ -31,7 +31,7 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
 
   const shareToFacebook = () => {
     const targetUrl = getShareUrl();
-    const quoteText = `100 Bàn Tay Dựng Xây - "${story.quote}" (${story.job} tại ${story.region})`;
+    const quoteText = `100 Bàn Tay Dựng Xây - "${story.quote || story.story.split('\n')[0]}" (${story.job} tại ${story.region})`;
     const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(targetUrl)}&quote=${encodeURIComponent(quoteText)}`;
     window.open(url, '_blank', 'width=600,height=550,scrollbars=yes');
   };
@@ -46,7 +46,7 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
     if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
       navigator.share({
         title: `100 Bàn Tay Dựng Xây - ${story.job}`,
-        text: `"${story.quote}" - Câu chuyện của ${story.job} tại ${story.region}`,
+        text: `"${story.quote || story.story.split('\n')[0]}" - Câu chuyện của ${story.job} tại ${story.region}`,
         url: getShareUrl(),
       }).catch(() => setShowShareMenu(true));
     } else {
@@ -62,7 +62,7 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
         onClick={onClose}
-        className="fixed inset-0 bg-[#101518]/95 backdrop-blur-md z-40 touch-none"
+        className="fixed inset-0 bg-white/95 backdrop-blur-md z-40 touch-none"
       />
       
       <motion.div
@@ -76,21 +76,21 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
         animate={{ y: 0 }}
         exit={{ y: '100%' }}
         transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-        className="fixed bottom-0 left-0 md:left-auto md:right-0 z-50 w-full h-[88dvh] max-h-dvh md:h-screen md:w-[600px] lg:w-[700px] bg-[#101518] border-t md:border-t-0 md:border-l border-[#272A6E] flex flex-col overflow-hidden shadow-[-20px_0_50px_rgba(59,42,133,0.3)]"
+        className="fixed bottom-0 left-0 md:left-auto md:right-0 z-50 w-full h-[88dvh] max-h-dvh md:h-screen md:w-[600px] lg:w-[700px] bg-white border-t md:border-t-0 md:border-l border-zinc-200 flex flex-col overflow-hidden shadow-[-20px_0_50px_rgba(0,0,0,0.1)]"
       >
         {/* Drag handle for mobile */}
         <div className="w-full flex justify-center pt-3 pb-1 md:hidden">
-          <div className="w-12 h-1 bg-[#272A6E] rounded-full"></div>
+          <div className="w-12 h-1 bg-zinc-300 rounded-full"></div>
         </div>
 
         {/* Header - Humanist Documentary Style */}
-        <div className="flex justify-between items-center px-6 py-4 md:py-5 border-b border-[#272A6E]">
+        <div className="flex justify-between items-center px-6 py-4 md:py-5 border-b border-zinc-200 bg-white z-10">
           <div className="text-xs font-semibold uppercase tracking-widest text-[#179FE8] font-mono">
             CÂU CHUYỆN SỐ {String(story.id).padStart(2, '0')}
           </div>
           <button 
             onClick={onClose}
-            className="text-xs font-semibold uppercase tracking-widest text-zinc-400 hover:text-[#DDE1E6] transition-colors flex items-center gap-1.5"
+            className="text-xs font-semibold uppercase tracking-widest text-zinc-500 hover:text-zinc-900 transition-colors flex items-center gap-1.5"
           >
             <span>Đóng</span>
             <span className="text-sm">✕</span>
@@ -98,42 +98,43 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
         </div>
 
         {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto no-scrollbar pb-[130px] md:pb-[100px]">
+        <div className="flex-1 overflow-y-auto no-scrollbar pb-[130px] md:pb-[100px] bg-[#FAFAFA]">
           
-          <div className="w-full h-[40vh] md:h-[45vh] bg-[#181f24] border-b border-[#272A6E] relative">
+          <div className="w-full h-[40vh] md:h-[45vh] bg-zinc-100 border-b border-zinc-200 relative">
             <img 
               src={story.image} 
               alt="" 
-              className="w-full h-full object-cover grayscale-[0.1] contrast-125"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#101518] via-transparent to-transparent opacity-60"></div>
+            {/* Subtle gradient so white text in image if any, but we don't need it as much for light mode */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-60"></div>
           </div>
 
-          <div className="px-6 py-10 md:px-12 md:py-16">
+          <div className="px-6 py-10 md:px-12 md:py-16 bg-white">
             
             <div className="flex gap-4 mb-8">
-              <div className="text-xs uppercase tracking-widest text-[#6E2BDB] font-bold bg-[#3B2A85]/40 px-3 py-1 border border-[#6E2BDB]/40">
+              <div className="text-xs uppercase tracking-widest text-[#6E2BDB] font-bold bg-[#6E2BDB]/10 px-3 py-1 border border-[#6E2BDB]/20 rounded-sm">
                 {story.region}
               </div>
-              <div className="text-xs uppercase tracking-widest text-[#179FE8] font-bold bg-[#0C6ED9]/20 px-3 py-1 border border-[#179FE8]/40">
+              <div className="text-xs uppercase tracking-widest text-[#179FE8] font-bold bg-[#179FE8]/10 px-3 py-1 border border-[#179FE8]/20 rounded-sm">
                 {story.role || story.job}
               </div>
             </div>
 
-            <h2 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold text-[#DDE1E6] mb-10 leading-[1.1] tracking-tighter uppercase drop-shadow-[0_0_20px_rgba(110,43,219,0.25)]">
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-zinc-900 mb-10 leading-[1.1] tracking-tighter uppercase">
               {story.title}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-[1fr_2px_1fr] gap-8 mb-12">
-              <div className="text-zinc-300 text-sm md:text-base leading-relaxed font-light space-y-4">
+              <div className="text-zinc-700 text-sm md:text-base leading-relaxed font-light space-y-4">
                 {story.story.split('\n').map((p, i) => p.trim() ? <p key={i}>{p}</p> : null)}
               </div>
-              <div className="hidden md:block w-[1px] bg-[#272A6E]"></div>
+              <div className="hidden md:block w-[1px] bg-zinc-200"></div>
               <div className="relative">
-                <svg className="w-6 h-6 text-[#532DA3] mb-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-[#179FE8]/30 mb-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
-                <p className="font-serif text-lg md:text-xl text-[#DDE1E6] italic font-medium leading-snug">
+                <p className="font-serif text-lg md:text-xl text-zinc-800 italic font-medium leading-snug">
                   "{story.quote || story.story.split('\n')[0]}"
                 </p>
               </div>
@@ -149,15 +150,15 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "100%", opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="absolute bottom-[75px] md:bottom-[60px] left-0 w-full bg-[#181f24] border-t-2 border-[#179FE8] p-6 z-40 shadow-[0_-15px_40px_rgba(23,159,232,0.4)]"
+              className="absolute bottom-[75px] md:bottom-[60px] left-0 w-full bg-white border-t-2 border-[#179FE8] p-6 z-40 shadow-[0_-15px_40px_rgba(0,0,0,0.1)]"
             >
-              <div className="flex justify-between items-center mb-4 pb-2 border-b border-[#272A6E]">
+              <div className="flex justify-between items-center mb-4 pb-2 border-b border-zinc-200">
                 <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#179FE8]">
                   [ CHIA SẺ CÂU CHUYỆN #{String(story.id).padStart(3, '0')} ]
                 </div>
                 <button 
                   onClick={() => setShowShareMenu(false)}
-                  className="text-xs uppercase tracking-widest text-zinc-400 hover:text-white font-bold"
+                  className="text-xs uppercase tracking-widest text-zinc-500 hover:text-zinc-900 font-bold"
                 >
                   [ Đóng ]
                 </button>
@@ -166,21 +167,21 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
               <div className="grid grid-cols-1 gap-3">
                 <button
                   onClick={copyToClipboard}
-                  className="w-full py-3 px-4 bg-[#101518] border border-[#272A6E] hover:border-[#6E2BDB] text-left flex items-center justify-between group transition-all"
+                  className="w-full py-3 px-4 bg-white border border-zinc-200 hover:border-[#6E2BDB] text-left flex items-center justify-between group transition-all rounded-md"
                 >
-                  <span className="text-sm font-semibold text-[#DDE1E6] group-hover:text-[#6E2BDB] transition-colors">
+                  <span className="text-sm font-semibold text-zinc-800 group-hover:text-[#6E2BDB] transition-colors">
                     {copied ? "✅ ĐÃ SAO CHÉP LINK VÀO BỘ NHỚ!" : "📋 Sao Chép Link (Copy Link)"}
                   </span>
-                  <span className="text-[10px] uppercase tracking-widest text-zinc-500 group-hover:text-zinc-300">
+                  <span className="text-[10px] uppercase tracking-widest text-zinc-400 group-hover:text-zinc-600">
                     {copied ? "Copied" : "Click to copy"}
                   </span>
                 </button>
 
                 <button
                   onClick={shareToFacebook}
-                  className="w-full py-3 px-4 bg-[#0C6ED9]/20 border border-[#179FE8]/40 hover:bg-[#0C6ED9]/40 text-left flex items-center justify-between group transition-all"
+                  className="w-full py-3 px-4 bg-[#0C6ED9]/5 border border-[#179FE8]/20 hover:bg-[#0C6ED9]/10 text-left flex items-center justify-between group transition-all rounded-md"
                 >
-                  <span className="text-sm font-semibold text-[#179FE8] group-hover:text-white transition-colors">
+                  <span className="text-sm font-semibold text-[#179FE8] transition-colors">
                     💬 Chia sẻ lên Facebook
                   </span>
                   <span className="text-[10px] uppercase tracking-widest text-[#179FE8]">Facebook</span>
@@ -188,9 +189,9 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
 
                 <button
                   onClick={shareToZalo}
-                  className="w-full py-3 px-4 bg-[#532DA3]/20 border border-[#6E2BDB]/40 hover:bg-[#532DA3]/40 text-left flex items-center justify-between group transition-all"
+                  className="w-full py-3 px-4 bg-[#532DA3]/5 border border-[#6E2BDB]/20 hover:bg-[#532DA3]/10 text-left flex items-center justify-between group transition-all rounded-md"
                 >
-                  <span className="text-sm font-semibold text-[#6E2BDB] group-hover:text-white transition-colors">
+                  <span className="text-sm font-semibold text-[#6E2BDB] transition-colors">
                     📲 Gửi qua Zalo (Tự động Copy + Mở Zalo)
                   </span>
                   <span className="text-[10px] uppercase tracking-widest text-[#6E2BDB]">Zalo</span>
@@ -200,12 +201,12 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
           )}
         </AnimatePresence>
 
-        {/* Bottom Actions - Brutalist Cyber Footer */}
-        <div className="absolute bottom-0 left-0 w-full border-t border-[#272A6E] bg-[#101518] flex z-50 pb-[max(16px,env(safe-area-inset-bottom))] md:pb-0">
+        {/* Bottom Actions - Brutalist Cyber Footer Light Mode */}
+        <div className="absolute bottom-0 left-0 w-full border-t border-zinc-200 bg-white flex z-50 pb-[max(16px,env(safe-area-inset-bottom))] md:pb-0">
           {onPrev && (
             <button 
               onClick={onPrev}
-              className="w-24 md:w-28 py-4 px-2 text-center border-r border-[#272A6E] hover:bg-[#181f24] transition-colors group flex flex-col justify-center items-center shrink-0"
+              className="w-24 md:w-28 py-4 px-2 text-center border-r border-zinc-200 hover:bg-zinc-50 transition-colors group flex flex-col justify-center items-center shrink-0"
               title="Câu chuyện trước"
             >
               <div className="text-[11px] uppercase tracking-widest text-[#179FE8] font-bold group-hover:text-[#6E2BDB] transition-colors">&lt; Trước</div>
@@ -214,16 +215,16 @@ export default function StoryModal({ story, onClose, onNext, onPrev }) {
 
           <button 
             onClick={onNext}
-            className="flex-1 py-4 px-4 text-center hover:bg-[#181f24] transition-colors group flex flex-col justify-center items-center"
+            className="flex-1 py-4 px-4 text-center hover:bg-zinc-50 transition-colors group flex flex-col justify-center items-center"
             title="Câu chuyện tiếp theo"
           >
             <div className="text-[10px] uppercase tracking-widest text-[#179FE8] mb-0.5 font-bold group-hover:text-[#6E2BDB] transition-colors">Tiếp theo &gt;</div>
-            <div className="text-xs font-bold text-[#DDE1E6] uppercase tracking-wider line-clamp-1">Khám phá câu chuyện mới</div>
+            <div className="text-xs font-bold text-zinc-900 uppercase tracking-wider line-clamp-1">Khám phá câu chuyện mới</div>
           </button>
           
           <button 
             onClick={handleShareClick}
-            className="w-24 md:w-28 border-l border-[#272A6E] flex flex-col justify-center items-center hover:bg-[#532DA3] hover:text-white text-zinc-400 transition-all group shrink-0"
+            className="w-24 md:w-28 border-l border-zinc-200 flex flex-col justify-center items-center hover:bg-[#179FE8] hover:text-white text-zinc-500 transition-all group shrink-0"
           >
             <span className="text-[10px] uppercase tracking-widest font-bold group-hover:text-white">
               {showShareMenu ? "[ Đóng ]" : "Share 🔗"}

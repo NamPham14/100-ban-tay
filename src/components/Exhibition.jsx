@@ -4,7 +4,7 @@ import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import StoryModal from './StoryModal';
 
 export default function Exhibition({ stories, initialStoryId }) {
-  const [showMap, setShowMap] = useState(false);
+  const [showMap, setShowMap] = useState(true);
   const [selectedStory, setSelectedStory] = useState(null);
   const [hoveredStory, setHoveredStory] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState('all');
@@ -23,7 +23,6 @@ export default function Exhibition({ stories, initialStoryId }) {
     if (idToLoad) {
       const story = stories.find(s => s.id === idToLoad);
       if (story) {
-        setShowMap(true);
         setSelectedStory(story);
       }
     }
@@ -32,7 +31,7 @@ export default function Exhibition({ stories, initialStoryId }) {
 
   const closeStory = () => {
     setSelectedStory(null);
-    window.history.replaceState({}, '', '/');
+    window.history.replaceState({}, '', '/trien-lam');
   };
 
   const openStory = (story) => {
@@ -64,79 +63,11 @@ export default function Exhibition({ stories, initialStoryId }) {
 
   return (
     <div className="relative w-screen h-dvh min-h-dvh overflow-hidden bg-[#101518] text-[#DDE1E6] touch-none">
-      
-      {/* Landing Page - Humanist Documentary Exhibition Portal */}
-      <AnimatePresence>
-        {!showMap && (
-          <motion.div 
-            className="absolute inset-0 z-40 flex flex-col justify-center md:justify-end px-6 md:px-16 pt-24 pb-12 md:pt-32 md:pb-20 bg-[#101518] overflow-y-auto no-scrollbar"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
-          >
-            {/* Natural monochrome photography background with soft vignette */}
-            <div className="absolute inset-0 z-0 opacity-20 pointer-events-none overflow-hidden">
-               <img src={stories[0]?.image} alt="" className="w-full h-full object-cover grayscale contrast-125 scale-105" />
-               <div className="absolute inset-0 bg-gradient-to-t from-[#101518] via-[#101518]/75 to-transparent"></div>
-               <div className="absolute inset-0 bg-gradient-to-r from-[#101518]/80 via-transparent to-transparent"></div>
-            </div>
-
-            <div className="relative z-10 w-full max-w-6xl mb-6 md:mb-10">
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="inline-flex items-center gap-2.5 text-[#179FE8] text-xs font-semibold tracking-widest uppercase mb-6 md:mb-8 font-mono"
-              >
-                <span className="w-2 h-2 rounded-full bg-[#179FE8]"></span>
-                Triển lãm ảnh & tư liệu lao động Việt Nam 2026
-              </motion.div>
-
-              <div className="mb-4">
-                <motion.h1 
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
-                  className="font-heading text-[3.8rem] sm:text-7xl md:text-[8rem] lg:text-[9.5rem] font-bold text-[#DDE1E6] leading-[0.95] tracking-tight uppercase"
-                >
-                  100 Bàn Tay
-                </motion.h1>
-              </div>
-              <div className="mb-10 md:mb-14">
-                <motion.h1 
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}
-                  className="font-heading text-[3.8rem] sm:text-7xl md:text-[8rem] lg:text-[9.5rem] font-bold text-[#DDE1E6] leading-[0.95] tracking-tight uppercase"
-                >
-                  Dựng Xây<span className="text-[#179FE8]">.</span>
-                </motion.h1>
-              </div>
-              
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 w-full border-t border-[#272A6E]/80 pt-8 md:pt-10">
-                <motion.p 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.6 }}
-                  className="text-base md:text-lg text-zinc-300 max-w-xl font-light leading-relaxed font-serif italic"
-                >
-                  "Mỗi bàn tay chai sần là một chứng nhân thầm lặng của những công trình vượt thời gian. Khám phá kho lưu trữ 100 câu chuyện lao động nguyên bản trải dài khắp dải đất hình chữ S."
-                </motion.p>
-                
-                <motion.button 
-                  onClick={() => setShowMap(true)}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.7 }}
-                  className="group flex items-center justify-between gap-6 bg-[#181f24] hover:bg-[#6E2BDB] border border-[#272A6E] hover:border-[#6E2BDB] px-8 py-4 rounded-full transition-all duration-300 shadow-md shrink-0"
-                >
-                  <span className="font-heading text-xs uppercase tracking-widest font-bold text-[#DDE1E6] group-hover:text-white transition-colors">Bước vào Bản đồ Triển lãm</span>
-                  <span className="text-base font-bold text-[#179FE8] group-hover:text-white group-hover:translate-x-1 transition-all">→</span>
-                </motion.button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Back to Home Button */}
+      <a href="/" className="absolute top-4 left-4 md:top-8 md:left-10 z-50 flex items-center gap-3 text-white transition-all bg-gradient-to-r from-[#6E2BDB] to-[#179FE8] px-5 py-3 rounded-full shadow-[0_0_20px_rgba(23,159,232,0.4)] hover:scale-105">
+        <span className="text-xl leading-none font-bold">&larr;</span>
+        <span className="text-xs md:text-sm font-bold uppercase tracking-widest">Trở về Trang Chủ</span>
+      </a>
 
       {/* Map View - Cyber Exhibition Dashboard */}
       <AnimatePresence>
