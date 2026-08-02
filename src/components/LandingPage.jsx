@@ -4,6 +4,38 @@ import { motion } from "framer-motion";
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: '', message: '' });
+  const [submitStatus, setSubmitStatus] = useState('idle');
+
+  const handleGuestbookSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.message) return;
+    
+    setSubmitStatus('submitting');
+    
+    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScym6UNFBNfYu0QXBz3fyH9CkCbi5l2i1U5YIAaIUFPFEItBQ/formResponse";
+    const data = new FormData();
+    data.append("entry.2066541356", formData.name);
+    data.append("entry.1886158958", formData.message);
+
+    try {
+      await fetch(formUrl, {
+        method: "POST",
+        mode: "no-cors",
+        body: data
+      });
+      
+      setSubmitStatus('success');
+      setFormData({ name: '', message: '' });
+      
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } catch (error) {
+      console.error("Error:", error);
+      setSubmitStatus('idle');
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -507,13 +539,16 @@ export default function LandingPage() {
             đây.
           </p>
 
-          <div className="glass rounded-2xl p-8 max-w-2xl mx-auto text-left shadow-[0_30px_80px_-30px_rgba(110,43,219,0.5)]">
+          <form onSubmit={handleGuestbookSubmit} className="glass rounded-2xl p-8 max-w-2xl mx-auto text-left shadow-[0_30px_80px_-30px_rgba(110,43,219,0.5)]">
             <div className="mb-6">
               <label className="block text-xs font-bold uppercase tracking-widest text-[#8FA3BC] mb-2">
                 Tên của bạn
               </label>
               <input
                 type="text"
+                required
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
                 className="w-full bg-[#0A0E16]/70 border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#179FE8] transition-colors"
                 placeholder="Nhập tên..."
               />
@@ -523,15 +558,35 @@ export default function LandingPage() {
                 Lời nhắn / Tri ân
               </label>
               <textarea
+                required
                 rows="4"
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
                 className="w-full bg-[#0A0E16]/70 border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#179FE8] transition-colors resize-none"
                 placeholder="Viết những điều bạn muốn nói..."
               ></textarea>
             </div>
-            <button className="w-full btn-gradient text-white font-bold uppercase tracking-widest text-sm py-4 rounded-xl">
-              Gửi Lời Tri Ân
-            </button>
-          </div>
+
+            {submitStatus === 'success' ? (
+              <div className="w-full bg-[#179FE8]/20 border border-[#179FE8] text-white font-bold text-center py-4 rounded-xl flex items-center justify-center gap-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                Gửi lời tri ân thành công! Cảm ơn bạn.
+              </div>
+            ) : (
+              <button 
+                type="submit" 
+                disabled={submitStatus === 'submitting'}
+                className="w-full btn-gradient text-white font-bold uppercase tracking-widest text-sm py-4 rounded-xl flex items-center justify-center gap-2 disabled:opacity-70 transition-all hover:scale-[1.02]"
+              >
+                {submitStatus === 'submitting' ? (
+                  <span className="flex items-center gap-2">
+                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    Đang gửi...
+                  </span>
+                ) : 'Gửi Lời Tri Ân'}
+              </button>
+            )}
+          </form>
         </div>
       </section>
 
@@ -541,8 +596,6 @@ export default function LandingPage() {
           
           <div className="flex-1">
             <div className="font-heading font-bold text-2xl uppercase text-white mb-3">DỰNG XÂY VIỆT NAM</div>
-            <div className="text-sm mb-1">Tập đoàn Xây Dựng Việt Nam</div>
-            <div className="text-sm mb-8">Đơn vị khởi xướng & đồng hành cùng lao động Việt</div>
             
             <div className="space-y-3 text-sm text-zinc-400">
               <a href="mailto:dungxaytuhaovietnam2026@gmail.com" className="flex items-center gap-3 hover:text-white transition-colors">
